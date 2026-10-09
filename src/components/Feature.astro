@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { icon: string; title: string; text: string }
+const { icon, title, text } = Astro.props;
+---
+<div class="feature" data-reveal>
+  <Icon name={icon} class="feature__icon" />
+  <div>
+    <h3 class="feature__title">{title}</h3>
+    <p class="feature__text">{text}</p>
+  </div>
+</div>

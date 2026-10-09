@@ -1,0 +1,23 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import Heading from './Heading.astro';
+import ContactForm from './ContactForm.astro';
+import ContactDetails from './ContactDetails.astro';
+interface Props { eyebrow: string; heading: string; text: string }
+const { eyebrow, heading, text } = Astro.props;
+---
+<section class="section contact" id="contact-form">
+  <div class="container contact__grid">
+    <ContactForm />
+    <div class="contact__info">
+      <Eyebrow text={eyebrow} />
+      <Heading text={heading} />
+      <p class="lead">{text}</p>
+      <div class="contact__cols" data-placeholder="contact-details">
+        <div><h3>Location</h3><ContactDetails part="address" /></div>
+        <div><h3>Contact</h3><ContactDetails part="contact" /></div>
+        <div><h3>Follow Us</h3><ContactDetails part="social" /></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+---
+// Two overlapping image slots, as in the reference "why us" layout.
+import Placeholder from './Placeholder.astro';
+interface Props { labelA: string; labelB: string }
+const { labelA, labelB } = Astro.props;
+---
+<div class="collage" data-reveal>
+  <Placeholder label={labelA} tone="dark" ratio="1 / 0.92" class="collage__a" />
+  <Placeholder label={labelB} tone="light" ratio="1 / 0.93" class="collage__b" />
+</div>

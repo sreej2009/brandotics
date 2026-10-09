@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Heading from '../components/Heading.astro';
+import Button from '../components/Button.astro';
+import Asterisk from '../components/Asterisk.astro';
+import Placeholder from '../components/Placeholder.astro';
+import Card from '../components/Card.astro';
+import Feature from '../components/Feature.astro';
+import StatsBand from '../components/StatsBand.astro';
+import SkillBars from '../components/SkillBars.astro';
+import Collage from '../components/Collage.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import ChannelsSection from '../components/ChannelsSection.astro';
+import TeamSection from '../components/TeamSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBox from '../components/CtaBox.astro';
+import { hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
+import { services, servicePath } from '../data/services';
+---
+<Base>
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <Eyebrow text={hero.eyebrow} />
+        <Heading tag="h1" size="xl" text={hero.heading} />
+        <p class="hero__text">{hero.text}</p>
+        <Button href="/contact/">{hero.button}</Button>
+      </div>
+      <div class="hero__media" data-reveal>
+        <Asterisk class="hero__mark" />
+        <Placeholder label="Hero image" tone="dark" ratio="4 / 5" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container services-intro">
+      <div class="grid grid--2">
+        {services.map((s) => <Card icon={s.icon} title={s.name} text={s.summary} href={servicePath(s.slug)} />)}
+      </div>
+      <div class="services-intro__text">
+        <Eyebrow text={whatWeDo.eyebrow} />
+        <Heading text={whatWeDo.heading} />
+        <p class="lead lead--cols">{whatWeDo.text}</p>
+        <Button href="/services/">{whatWeDo.button}</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container about-split">
+      <div>
+        <Eyebrow text={approach.eyebrow} />
+        <Heading text={approach.heading} />
+        {approach.paragraphs.map((p) => <p class="lead">{p}</p>)}
+        <div class="features">
+          {approach.features.map((f) => <Feature {...f} />)}
+          <div class="features__action"><Button href="/about/">More About Us</Button></div>
+        </div>
+      </div>
+      <div class="about-split__media" data-reveal>
+        <Asterisk class="about-split__mark" />
+        <Placeholder label="About image" tone="light" ratio="1 / 1" />
+        <div class="about-split__tile" aria-hidden="true"><Asterisk variant="outline" stroke={2} /></div>
+      </div>
+    </div>
+  </section>
+
+  <StatsBand />
+
+  <section class="section">
+    <div class="container why-split">
+      <Collage labelA="Why work with us, image 1" labelB="Why work with us, image 2" />
+      <div>
+        <Eyebrow text={why.eyebrow} />
+        <Heading text={why.heading} />
+        <p class="lead">{why.text}</p>
+        <div class="features features--stack">
+          {why.features.map((f) => <Feature {...f} />)}
+        </div>
+        <SkillBars items={why.bars} />
+      </div>
+    </div>
+  </section>
+
+  <ProcessSection />
+  <ChannelsSection />
+  <TeamSection {...team} />
+  <ContactSection {...talk} />
+  <FaqSection />
+  <CtaBox {...cta} />
+</Base>

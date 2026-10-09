@@ -1,0 +1,17 @@
+---
+// Display heading with mixed word styles.
+// Markup: {o:…} outline, {oa:…} orange outline, {a:…} orange, | line break (desktop only).
+interface Props { text: string; tag?: 'h1' | 'h2' | 'h3'; size?: 'xl' | 'lg' | 'md'; class?: string }
+const { text, tag: Tag = 'h2', size = 'lg', class: cls } = Astro.props;
+
+const lines = text.split('|').map((line) => {
+  const parts: { s: string; t: string }[] = [];
+  const re = /\{(oa|o|a):([^}]+)\}|([^{]+)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(line))) parts.push(m[1] ? { s: m[1], t: m[2] } : { s: '', t: m[3] });
+  return parts;
+});
+---
+<Tag class:list={['heading', `heading--${size}`, cls]}>{lines.map((parts, i) => (
+  <>{i > 0 && <>{' '}<br class="heading__br" /></>}{parts.map((p) => (p.s ? <span class={`hl-${p.s}`}>{p.t}</span> : p.t))}</>
+))}</Tag>

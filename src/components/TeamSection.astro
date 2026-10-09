@@ -1,0 +1,27 @@
+---
+// PLACEHOLDER TEAM GRID: no team member names, roles or photos were supplied,
+// so each slot is an explicitly labelled placeholder.
+import Eyebrow from './Eyebrow.astro';
+import Heading from './Heading.astro';
+import Placeholder from './Placeholder.astro';
+interface Props { eyebrow: string; heading: string; text: string }
+const { eyebrow, heading, text } = Astro.props;
+---
+<section class="section team">
+  <div class="container">
+    <div class="center-head">
+      <Eyebrow text={eyebrow} center />
+      <Heading text={heading} />
+      <p class="lead">{text}</p>
+    </div>
+    <ul class="team__grid" data-placeholder="team">
+      {[1, 2, 3, 4].map((n) => (
+        <li class="member" data-reveal>
+          <Placeholder label={`Team photo ${n}`} tone={n % 2 ? 'light' : 'peach'} ratio="4 / 5" />
+          <p class="member__name tbd">Name to be added</p>
+          <p class="member__role tbd">Role to be added</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

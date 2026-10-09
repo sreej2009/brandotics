@@ -1,0 +1,29 @@
+---
+// Contact details. Any value missing from src/data/site.ts is shown as a
+// visibly marked placeholder instead of invented information.
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+interface Props { part: 'address' | 'contact' | 'social' }
+const { part } = Astro.props;
+const { address, email, phone } = site.contact;
+---
+{part === 'address' && (address ? <p>{address}</p> : <p class="tbd">Address to be added</p>)}
+{part === 'contact' && (
+  <>
+    {email ? <p><a href={`mailto:${email}`}>{email}</a></p> : <p class="tbd">Email to be added</p>}
+    {phone ? <p><a href={`tel:${phone.replace(/[^+\d]/g, '')}`}>{phone}</a></p> : <p class="tbd">Phone to be added</p>}
+  </>
+)}
+{part === 'social' && (
+  site.socials.length ? (
+    <ul class="socials">
+      {site.socials.map((s) => (
+        <li><a href={s.href} rel="noopener" target="_blank" aria-label={s.label}><Icon name="link" size={16} /></a></li>
+      ))}
+    </ul>
+  ) : (
+    <ul class="socials socials--tbd" aria-label="Social links to be added">
+      {[1, 2, 3, 4].map(() => <li><span title="Social link placeholder"><Icon name="link" size={16} /></span></li>)}
+    </ul>
+  )
+)}

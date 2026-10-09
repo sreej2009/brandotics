@@ -1,0 +1,6 @@
+---
+import Asterisk from './Asterisk.astro';
+interface Props { href: string; variant?: 'dark' | 'accent' | 'ghost'; class?: string }
+const { href, variant = 'dark', class: cls } = Astro.props;
+---
+<a class:list={['btn', `btn--${variant}`, cls]} href={href}><span><slot /></span><Asterisk class="btn__mark" /></a>

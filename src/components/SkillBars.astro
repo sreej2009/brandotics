@@ -1,0 +1,14 @@
+---
+interface Props { items: { label: string; value: number }[] }
+const { items } = Astro.props;
+---
+<ul class="bars">
+  {items.map((b) => (
+    <li class="bar" data-bar>
+      <span class="bar__label">{b.label}</span>
+      <span class="bar__track" role="progressbar" aria-label={b.label} aria-valuemin="0" aria-valuemax="100" aria-valuenow={b.value}>
+        <span class="bar__fill" style={`--value:${b.value}%`}><span class="bar__value">{b.value}%</span></span>
+      </span>
+    </li>
+  ))}
+</ul>

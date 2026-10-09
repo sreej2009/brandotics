@@ -1,0 +1,15 @@
+---
+// Contact page copy is taken from brandotics-content.pdf (page 28).
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+
+const text =
+  'Have a project in mind or looking to strengthen your digital presence? Let’s connect and explore how Brandotics can help your business grow with smart digital marketing strategies.';
+---
+<Base title="Contact Us" description={text}>
+  <PageHero title="Contact {a:Us}" crumb="Contact" />
+  <ContactSection eyebrow={'Let’s Talk'} heading="{o:Ready to}|Grow {a:Your Brand?}" text={text} />
+  <FaqSection />
+</Base>

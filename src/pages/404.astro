@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Heading from '../components/Heading.astro';
+import Button from '../components/Button.astro';
+---
+<Base title="Page not found">
+  <section class="page-hero page-hero--tall">
+    <div class="container">
+      <Heading tag="h1" text="{o:404} Page {a:Not Found}" />
+      <p class="crumbs">The page you are looking for does not exist.</p>
+      <Button href="/">Back to Home</Button>
+    </div>
+  </section>
+</Base>

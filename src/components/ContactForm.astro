@@ -1,0 +1,42 @@
+---
+// Contact form with client-side validation.
+// PLACEHOLDER SUBMISSION: nothing is sent until `formEndpoint` is set in
+// src/data/site.ts. See the submit handler in src/scripts/main.js.
+import { site } from '../data/site';
+---
+<form class="form" novalidate data-contact-form data-endpoint={site.formEndpoint}>
+  <div class="form__row">
+    <div class="field">
+      <label for="cf-name">Your Name <span class="req" aria-hidden="true">*</span></label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Name" required aria-describedby="cf-name-err" />
+      <p class="field__error" id="cf-name-err" hidden></p>
+    </div>
+    <div class="field">
+      <label for="cf-company">Company</label>
+      <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Company Name" />
+    </div>
+  </div>
+  <div class="form__row">
+    <div class="field">
+      <label for="cf-email">Your Email <span class="req" aria-hidden="true">*</span></label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="Your Email" required aria-describedby="cf-email-err" />
+      <p class="field__error" id="cf-email-err" hidden></p>
+    </div>
+    <div class="field">
+      <label for="cf-phone">Phone</label>
+      <input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone" aria-describedby="cf-phone-err" />
+      <p class="field__error" id="cf-phone-err" hidden></p>
+    </div>
+  </div>
+  <div class="field">
+    <label for="cf-subject">Subject</label>
+    <input id="cf-subject" name="subject" type="text" placeholder="Subject" />
+  </div>
+  <div class="field">
+    <label for="cf-message">Message <span class="req" aria-hidden="true">*</span></label>
+    <textarea id="cf-message" name="message" rows="7" placeholder="Write your message here..." required aria-describedby="cf-message-err"></textarea>
+    <p class="field__error" id="cf-message-err" hidden></p>
+  </div>
+  <button class="form__submit" type="submit">Send Message</button>
+  <p class="form__status" role="status" aria-live="polite" hidden></p>
+</form>

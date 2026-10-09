@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Heading from '../../components/Heading.astro';
+import Card from '../../components/Card.astro';
+import StatsBand from '../../components/StatsBand.astro';
+import ProcessSection from '../../components/ProcessSection.astro';
+import ChannelsSection from '../../components/ChannelsSection.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import { whatWeDo, cta } from '../../data/home';
+import { services, servicePath } from '../../data/services';
+---
+<Base title="Services" description={whatWeDo.text}>
+  <PageHero title="Our {a:Services}" crumb="Services" />
+
+  <section class="section">
+    <div class="container">
+      <div class="split-head">
+        <div>
+          <Eyebrow text={whatWeDo.eyebrow} />
+          <Heading text={whatWeDo.heading} />
+        </div>
+        <p class="lead">{whatWeDo.text}</p>
+      </div>
+      <div class="grid grid--3">
+        {services.map((s) => <Card icon={s.icon} title={s.name} text={s.summary} href={servicePath(s.slug)} />)}
+      </div>
+    </div>
+  </section>
+
+  <StatsBand />
+  <ProcessSection />
+  <ChannelsSection />
+  <FaqSection />
+  <CtaBox {...cta} />
+</Base>

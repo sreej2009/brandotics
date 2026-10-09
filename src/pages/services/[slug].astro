@@ -1,0 +1,91 @@
+---
+// One template for all six service pages. Content lives in src/data/services.ts.
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Heading from '../../components/Heading.astro';
+import Button from '../../components/Button.astro';
+import Asterisk from '../../components/Asterisk.astro';
+import Icon from '../../components/Icon.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import Card from '../../components/Card.astro';
+import Feature from '../../components/Feature.astro';
+import Collage from '../../components/Collage.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import { services, servicePath, type Service } from '../../data/services';
+import { cta as homeCta } from '../../data/home';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+interface Props { service: Service }
+const { service } = Astro.props;
+const others = services.filter((s) => s.slug !== service.slug);
+---
+<Base title={service.title} description={service.summary}>
+  <PageHero title={service.titleMarkup} crumb={service.name} parent={{ label: 'Services', href: '/services/' }} />
+
+  <section class="section">
+    <div class="container service">
+      <div class="service__main">
+        <Placeholder label={`${service.name} image`} tone="dark" ratio="2.16 / 1" />
+        <h2 class="heading heading--md service__tagline">{service.tagline}</h2>
+        {service.intro.map((p) => <p class="lead">{p}</p>)}
+
+        <h3 class="subhead">What's Included:</h3>
+        <div class="grid grid--3 grid--tight">
+          {service.cards.map((c) => <Card icon={c.icon} title={c.title} iconFirst tag="h4" />)}
+        </div>
+
+        <div class="service__lists">
+          <div>
+            <h3 class="subhead">{service.matters.heading}</h3>
+            <p class="lead">{service.matters.intro}</p>
+            <p class="lead">{service.matters.lead}</p>
+            <ul class="checklist">
+              {service.matters.items.map((item) => <li><Icon name="arrow" size={20} />{item}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h3 class="subhead">{service.who.heading}</h3>
+            <p class="lead">{service.who.intro}</p>
+            <ul class="checklist">
+              {service.who.items.map((item) => <li><Icon name="check" size={20} />{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <aside class="service__side" aria-label="More services">
+        <h2 class="side-title">More Services</h2>
+        <ul class="side-list">
+          {others.map((s) => (
+            <li><a href={servicePath(s.slug)}><Asterisk class="side-list__mark" />{s.name}</a></li>
+          ))}
+        </ul>
+        <div class="side-cta">
+          <p class="side-cta__eyebrow">{homeCta.eyebrow}</p>
+          <p class="side-cta__title">Let&rsquo;s Build Your Digital Momentum!</p>
+          <Button href="/contact/" variant="accent">{homeCta.button}</Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container why-split">
+      <Collage labelA={`${service.name}, image 2`} labelB={`${service.name}, image 3`} />
+      <div>
+        <Eyebrow text="Why Choose Brandotics?" />
+        <Heading text={service.why.heading} />
+        {service.why.paragraphs.map((p) => <p class="lead">{p}</p>)}
+        <div class="features features--stack">
+          {service.why.features.map((f) => <Feature {...f} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBox heading={service.cta.heading} text={service.cta.text} button="Get Started" />
+</Base>

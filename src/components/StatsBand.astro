@@ -1,0 +1,21 @@
+---
+// Animated counters. Figures come from brandotics-content.pdf (home page).
+import Eyebrow from './Eyebrow.astro';
+import Heading from './Heading.astro';
+import { stats } from '../data/home';
+---
+<section class="stats">
+  <div class="container">
+    <Eyebrow text={stats.eyebrow} center />
+    <Heading text={stats.heading} size="md" class="stats__heading" />
+    <dl class="stats__grid">
+      {stats.items.map((s) => (
+        <div class="stat" data-reveal>
+          <dt class="stat__label">{s.label}</dt>
+          <dd class="stat__value"><span data-counter={s.value}>{s.value}</span>{s.suffix}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="stats__note">{stats.note}</p>
+  </div>
+</section>

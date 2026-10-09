@@ -1,0 +1,22 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import Heading from './Heading.astro';
+import Asterisk from './Asterisk.astro';
+import Card from './Card.astro';
+import { channels } from '../data/home';
+---
+<section class="section channels">
+  <div class="container">
+    <div class="channels__head">
+      <Asterisk class="channels__mark" />
+      <div>
+        <Eyebrow text={channels.eyebrow} />
+        <Heading text={channels.heading} />
+        <p class="lead">{channels.text}</p>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      {channels.items.map((c) => <Card icon={c.icon} title={c.title} text={c.text} />)}
+    </div>
+  </div>
+</section>

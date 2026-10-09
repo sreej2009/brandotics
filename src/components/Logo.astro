@@ -1,0 +1,9 @@
+---
+// PLACEHOLDER LOGO: a text wordmark until the real Brandotics logo is supplied.
+// Swap the contents of this component for an <img> / inline SVG of the logo.
+import Asterisk from './Asterisk.astro';
+import { site } from '../data/site';
+---
+<a class="logo" href="/" aria-label={`${site.name} home`} data-placeholder="logo">
+  <span class="logo__text">{site.name}</span><Asterisk class="logo__mark" />
+</a>

@@ -1,0 +1,42 @@
+---
+import Logo from './Logo.astro';
+import Asterisk from './Asterisk.astro';
+import ContactDetails from './ContactDetails.astro';
+import { site, nav } from '../data/site';
+import { services, servicePath } from '../data/services';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <Asterisk variant="outline" stroke={1.5} class="footer__deco" />
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <Logo />
+        <p>{site.description}</p>
+      </div>
+      <nav aria-label="Company">
+        <h2 class="footer__title">Company</h2>
+        <ul class="footer__list">
+          {nav.map((n) => <li><Asterisk class="footer__bullet" /><a href={n.href}>{n.label}</a></li>)}
+        </ul>
+      </nav>
+      <nav aria-label="Services">
+        <h2 class="footer__title">Services</h2>
+        <ul class="footer__list">
+          {services.map((s) => <li><Asterisk class="footer__bullet" /><a href={servicePath(s.slug)}>{s.name}</a></li>)}
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer__title">Get in Touch</h2>
+        <div class="footer__contact">
+          <ContactDetails part="contact" />
+          <ContactDetails part="address" />
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <ContactDetails part="social" />
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
