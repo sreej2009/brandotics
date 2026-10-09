@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Heading from '../components/Heading.astro';
-import Asterisk from '../components/Asterisk.astro';
+import GrowthMark from '../components/GrowthMark.astro';
 import Placeholder from '../components/Placeholder.astro';
 import Card from '../components/Card.astro';
 import Feature from '../components/Feature.astro';
@@ -47,9 +47,9 @@ const cards = [
         </div>
       </div>
       <div class="about-split__media" data-reveal>
-        <Asterisk class="about-split__mark" />
+        <GrowthMark class="about-split__mark" />
         <Placeholder label="About Brandotics image" tone="light" ratio="1 / 1" />
-        <div class="about-split__tile" aria-hidden="true"><Asterisk variant="outline" stroke={2} /></div>
+        <div class="about-split__tile" aria-hidden="true"><GrowthMark variant="outline" stroke={2} /></div>
       </div>
     </div>
   </section>

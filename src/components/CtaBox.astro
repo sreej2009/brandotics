@@ -1,14 +1,14 @@
 ---
 import Heading from './Heading.astro';
 import Button from './Button.astro';
-import Asterisk from './Asterisk.astro';
+import GrowthMark from './GrowthMark.astro';
 interface Props { eyebrow?: string; heading: string; text?: string; button: string; href?: string }
 const { eyebrow, heading, text, button, href = '/contact/' } = Astro.props;
 ---
 <section class="cta">
   <div class="container">
     <div class="cta__box">
-      <Asterisk variant="outline" stroke={2.2} class="cta__deco" />
+      <GrowthMark variant="outline" stroke={2.2} class="cta__deco" />
       {eyebrow && <p class="cta__eyebrow">{eyebrow}</p>}
       <Heading text={heading} />
       {text && <p class="cta__text">{text}</p>}

@@ -1,6 +1,6 @@
 ---
-import Asterisk from './Asterisk.astro';
+import GrowthMark from './GrowthMark.astro';
 interface Props { text: string; center?: boolean }
 const { text, center = false } = Astro.props;
 ---
-<p class:list={['eyebrow', { 'eyebrow--center': center }]}><Asterisk class="eyebrow__mark" /><span>{text}</span></p>
+<p class:list={['eyebrow', { 'eyebrow--center': center }]}><GrowthMark class="eyebrow__mark" /><span>{text}</span></p>
