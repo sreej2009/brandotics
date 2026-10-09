@@ -1,4 +1,5 @@
 ---
+import { url } from '../../utils/url';
 // One template for all six service pages. Content lives in src/data/services.ts.
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
@@ -63,7 +64,7 @@ const images = serviceImages[service.slug];
         <h2 class="side-title">More Services</h2>
         <ul class="side-list">
           {others.map((s) => (
-            <li><a href={servicePath(s.slug)}><BrandMark class="side-list__mark" />{s.name}</a></li>
+            <li><a href={url(servicePath(s.slug))}><BrandMark class="side-list__mark" />{s.name}</a></li>
           ))}
         </ul>
         <div class="side-cta">

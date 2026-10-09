@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url';
 import Logo from './Logo.astro';
 import Button from './Button.astro';
 import { nav } from '../data/site';
@@ -6,7 +7,7 @@ import { services, servicePath } from '../data/services';
 import { hero } from '../data/home';
 
 const path = Astro.url.pathname.replace(/\/?$/, '/');
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isCurrent = (href: string) => (href === '/' ? path === url('/') : path.startsWith(url(href)));
 ---
 <header class="header">
   <div class="container header__inner">
@@ -18,13 +19,13 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
       <ul class="nav__list">
         {nav.map((item) => (
           <li class:list={['nav__item', { 'has-sub': item.children }]}>
-            <a href={item.href} aria-current={path === item.href ? 'page' : undefined} class:list={{ 'is-active': isCurrent(item.href) }}>{item.label}</a>
+            <a href={url(item.href)} aria-current={path === url(item.href) ? 'page' : undefined} class:list={{ 'is-active': isCurrent(item.href) }}>{item.label}</a>
             {item.children && (
               <>
                 <button class="nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-services" aria-label="Toggle services submenu"><span aria-hidden="true"></span></button>
                 <ul id="nav-services" class="nav__sub">
                   {services.map((s) => (
-                    <li><a href={servicePath(s.slug)} aria-current={path === servicePath(s.slug) ? 'page' : undefined}>{s.name}</a></li>
+                    <li><a href={url(servicePath(s.slug))} aria-current={path === url(servicePath(s.slug)) ? 'page' : undefined}>{s.name}</a></li>
                   ))}
                 </ul>
               </>

@@ -343,7 +343,7 @@ main { overflow-x: clip; }
 
 /* ---------- CTA ---------- */
 .cta { padding-bottom: var(--section); }
-.cta__box { position: relative; overflow: hidden; background: var(--beige) url('/assets/brandotics-banner.png') right top / cover no-repeat; border: 1px solid var(--border); color: var(--ink); text-align: center; padding: 108px 30px 120px; }
+.cta__box { position: relative; overflow: hidden; background: var(--beige) right top / cover no-repeat; /* banner image is set inline in CtaBox.astro so it follows the site's base path */ border: 1px solid var(--border); color: var(--ink); text-align: center; padding: 108px 30px 120px; }
 .cta__deco { position: absolute; width: 210px; left: -24px; bottom: -30px; color: var(--accent); pointer-events: none; }
 .cta__eyebrow { position: relative; color: var(--accent-text); font-family: var(--font-head); font-weight: 600; font-size: 25px; line-height: 1; letter-spacing: -0.5px; text-transform: uppercase; margin-bottom: 30px; }
 .cta__box .heading { position: relative; font-size: clamp(46px, 6.3vw, 90px); }

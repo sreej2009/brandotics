@@ -12,6 +12,12 @@ Copy comes from `brandotics-content.pdf`; the visual design follows the agreed r
 | `npm run build` | Production build into `dist/` |
 | `npm run preview` | Serve the production build locally |
 
+## Deployment
+
+Pushing to `main` builds and publishes the site to GitHub Pages through
+`.github/workflows/deploy.yml`. The workflow passes the Pages URL and sub-folder to the
+build (`SITE_URL`, `BASE_PATH`); links and assets pick the sub-folder up via `src/utils/url.ts`.
+
 ## Structure
 
 - `src/data/site.ts`: site name, contact details, social links, form endpoint

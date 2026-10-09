@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url';
 import Heading from './Heading.astro';
 interface Props { title: string; crumb: string; parent?: { label: string; href: string }; size?: 'lg' | 'md' }
 const { title, crumb, parent, size = 'lg' } = Astro.props;
@@ -8,8 +9,8 @@ const { title, crumb, parent, size = 'lg' } = Astro.props;
     <Heading tag="h1" text={title} size={size} />
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
-        <li><a href="/">Home</a></li>
-        {parent && <li><a href={parent.href}>{parent.label}</a></li>}
+        <li><a href={url('/')}>Home</a></li>
+        {parent && <li><a href={url(parent.href)}>{parent.label}</a></li>}
         <li aria-current="page">{crumb}</li>
       </ol>
     </nav>

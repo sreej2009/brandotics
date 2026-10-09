@@ -1,11 +1,12 @@
 ---
+import { url } from '../utils/url';
 // Bordered card used for the services, channels and service-detail grids.
 import Icon from './Icon.astro';
 interface Props { icon: string; title: string; text?: string; href?: string; iconFirst?: boolean; tag?: 'h2' | 'h3' | 'h4' }
 const { icon, title, text, href, iconFirst = false, tag: Tag = 'h3' } = Astro.props;
 ---
 <article class:list={['card', { 'card--icon-first': iconFirst, 'card--link': href }]} data-reveal>
-  <Tag class="card__title">{href ? <a href={href}>{title}</a> : title}</Tag>
+  <Tag class="card__title">{href ? <a href={url(href)}>{title}</a> : title}</Tag>
   <Icon name={icon} class="card__icon" />
   {text && <p class="card__text">{text}</p>}
 </article>

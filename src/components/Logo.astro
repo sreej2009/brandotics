@@ -1,9 +1,10 @@
 ---
+import { url } from '../utils/url';
 // Brandotics wordmark (public/assets/brandotics-wordmark.png, 2170×725, transparent).
 // The file has transparent padding around the lettering; the CSS for `.logo`
 // sizes the image so the lettering itself lands at the intended height.
 import { site } from '../data/site';
 ---
-<a class="logo" href="/" aria-label={`${site.name} home`}>
-  <img src="/assets/brandotics-wordmark.png" alt={site.name} width="2170" height="725" decoding="async" />
+<a class="logo" href={url('/')} aria-label={`${site.name} home`}>
+  <img src={url('/assets/brandotics-wordmark.png')} alt={site.name} width="2170" height="725" decoding="async" />
 </a>

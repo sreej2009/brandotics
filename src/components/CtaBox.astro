@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url';
 import Heading from './Heading.astro';
 import Button from './Button.astro';
 import BrandMark from './BrandMark.astro';
@@ -7,7 +8,7 @@ const { eyebrow, heading, text, button, href = '/contact/' } = Astro.props;
 ---
 <section class="cta">
   <div class="container">
-    <div class="cta__box">
+    <div class="cta__box" style={`background-image:url('${url('/assets/brandotics-banner.png')}')`}>
       <BrandMark variant="outline" stroke={2.2} class="cta__deco" />
       {eyebrow && <p class="cta__eyebrow">{eyebrow}</p>}
       <Heading text={heading} />

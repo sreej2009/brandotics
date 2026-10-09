@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/url';
 // PLACEHOLDER TEAM GRID: no team member names, roles or photos were supplied,
 // so each slot shows the supplied generic avatar with explicit "to be added" text.
 import Eyebrow from './Eyebrow.astro';
@@ -18,7 +19,7 @@ const { eyebrow, heading, text } = Astro.props;
       {[1, 2, 3, 4].map((n) => (
         <li class="member" data-reveal>
           <div class:list={['member__photo', { 'member__photo--alt': n % 2 === 0 }]}>
-            <img src={teamAvatar} alt="" width="600" height="848" loading="lazy" decoding="async" />
+            <img src={url(teamAvatar)} alt="" width="600" height="848" loading="lazy" decoding="async" />
           </div>
           <p class="member__name tbd">Name to be added</p>
           <p class="member__role tbd">Role to be added</p>
