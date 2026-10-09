@@ -155,15 +155,17 @@ main { overflow-x: clip; }
 .hero { background: var(--cream); position: relative; overflow: hidden; }
 /* Sized to the viewport so the whole hero, photo included, is visible without scrolling (header is 82px). */
 .hero__inner { position: relative; min-height: min(calc(100svh - 82px), 862px); display: flex; align-items: center; padding-block: clamp(36px, 6vh, 110px); }
-.hero .heading--xl { font-size: clamp(64px, min(11.8vw, 20vh), 170px); }
+.hero { --hero-fs: clamp(64px, min(11.8vw, 20vh), 170px); }
+.hero .heading--xl { font-size: var(--hero-fs); }
 .hero__content { position: relative; z-index: 2; max-width: 1000px; }
 .hero .eyebrow { margin-bottom: clamp(24px, 4.5vh, 44px); }
 .hero__text { max-width: 520px; margin: clamp(24px, 4.5vh, 46px) 0 clamp(28px, 5.5vh, 60px); }
 /* Large hero photo: about three-quarters of the screen height, bottom-aligned, with the
    figure running to the right edge of the window. The file has transparent side margins
    (figure = 72% of its width, 10.5% empty on the right), which the maths below accounts
-   for. The width is also capped so the figure never reaches the 520px text column. */
-.hero__media { --w: min(161svh, (100vw - (100vw - 100%) / 2 - 580px) / 0.72); position: absolute; z-index: 1; bottom: 0; width: var(--w); right: calc((100% - 100vw) / 2 - var(--w) * 0.105); }
+   for. The width is also capped so the figure never reaches the 520px text column and
+   the head (which starts 47% across the file) stays clear of the headline. */
+.hero__media { --w: min(161svh, (100vw - (100vw - 100%) / 2 - 580px) / 0.72, (100% + (100vw - 100%) / 2 - 5.6 * var(--hero-fs) - 20px) / 0.425); position: absolute; z-index: 1; bottom: 0; width: var(--w); right: calc((100% - 100vw) / 2 - var(--w) * 0.105); }
 .hero__img { display: block; width: 100%; height: auto; aspect-ratio: 1850 / 850; object-fit: contain; object-position: center bottom; }
 .hero__mark { position: absolute; width: 10%; left: 68.5%; top: -3%; color: var(--accent); z-index: 2; animation: rise 7s ease-in-out infinite alternate; }
 @keyframes rise { to { transform: translate(6px, -10px); } }
@@ -225,7 +227,7 @@ main { overflow-x: clip; }
 .about-split__mark { position: absolute; width: 190px; right: -30px; top: -84px; color: var(--accent); z-index: 0; }
 .about-split__media .ph { position: relative; z-index: 1; align-items: flex-start; }
 .about-split__tile { position: absolute; z-index: 2; left: 0; bottom: 0; width: 38%; aspect-ratio: 1; background: var(--accent); color: var(--on-accent); border: 2px solid var(--bg); border-width: 2px 2px 0 0; display: grid; place-items: center; }
-.about-split__tile .growth-mark { width: 58%; }
+.about-split__tile .brand-mark { width: 58%; }
 
 /* ---------- Stats ---------- */
 .stats { background: var(--cream); padding-block: 102px 110px; text-align: center; }

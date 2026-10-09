@@ -5,7 +5,7 @@ import PageHero from '../../components/PageHero.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
 import Heading from '../../components/Heading.astro';
 import Button from '../../components/Button.astro';
-import GrowthMark from '../../components/GrowthMark.astro';
+import BrandMark from '../../components/BrandMark.astro';
 import Icon from '../../components/Icon.astro';
 import Placeholder from '../../components/Placeholder.astro';
 import Card from '../../components/Card.astro';
@@ -61,7 +61,7 @@ const others = services.filter((s) => s.slug !== service.slug);
         <h2 class="side-title">More Services</h2>
         <ul class="side-list">
           {others.map((s) => (
-            <li><a href={servicePath(s.slug)}><GrowthMark class="side-list__mark" />{s.name}</a></li>
+            <li><a href={servicePath(s.slug)}><BrandMark class="side-list__mark" />{s.name}</a></li>
           ))}
         </ul>
         <div class="side-cta">

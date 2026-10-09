@@ -1,11 +1,11 @@
 ---
 // Clearly labelled stand-in for an image that has not been supplied yet.
 // Replace with a real <img> when photography / artwork is available.
-import GrowthMark from './GrowthMark.astro';
+import BrandMark from './BrandMark.astro';
 interface Props { label: string; tone?: 'dark' | 'light' | 'accent' | 'peach' | 'paper'; ratio?: string; class?: string }
 const { label, tone = 'light', ratio = '4 / 3', class: cls } = Astro.props;
 ---
 <div class:list={['ph', `ph--${tone}`, cls]} style={`aspect-ratio:${ratio}`} role="img" aria-label={`Image placeholder: ${label}`}>
-  <GrowthMark variant="outline" stroke={1} class="ph__mark" />
+  <BrandMark variant="outline" stroke={1} class="ph__mark" />
   <span class="ph__label">Image placeholder<br />{label}</span>
 </div>

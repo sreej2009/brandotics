@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Heading from '../components/Heading.astro';
 import Button from '../components/Button.astro';
-import GrowthMark from '../components/GrowthMark.astro';
+import BrandMark from '../components/BrandMark.astro';
 import Placeholder from '../components/Placeholder.astro';
 import Card from '../components/Card.astro';
 import Feature from '../components/Feature.astro';
@@ -29,7 +29,7 @@ import { services, servicePath } from '../data/services';
         <Button href="/contact/">{hero.button}</Button>
       </div>
       <div class="hero__media" data-reveal>
-        <GrowthMark class="hero__mark" />
+        <BrandMark class="hero__mark" />
         <img class="hero__img" src="/assets/hero-man-pointing.png" alt="Smiling man in sunglasses and an olive jacket pointing towards the viewer with both hands" width="1850" height="850" fetchpriority="high" decoding="async" />
       </div>
     </div>
@@ -61,9 +61,9 @@ import { services, servicePath } from '../data/services';
         </div>
       </div>
       <div class="about-split__media" data-reveal>
-        <GrowthMark class="about-split__mark" />
+        <BrandMark class="about-split__mark" />
         <Placeholder label="About image" tone="light" ratio="1 / 1" />
-        <div class="about-split__tile" aria-hidden="true"><GrowthMark variant="outline" stroke={2} /></div>
+        <div class="about-split__tile" aria-hidden="true"><BrandMark variant="outline" stroke={2} /></div>
       </div>
     </div>
   </section>

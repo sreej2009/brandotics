@@ -1,13 +1,13 @@
 ---
 import Logo from './Logo.astro';
-import GrowthMark from './GrowthMark.astro';
+import BrandMark from './BrandMark.astro';
 import ContactDetails from './ContactDetails.astro';
 import { site, nav } from '../data/site';
 import { services, servicePath } from '../data/services';
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
-  <GrowthMark variant="outline" stroke={1.5} class="footer__deco" />
+  <BrandMark variant="outline" stroke={1.5} class="footer__deco" />
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
@@ -17,13 +17,13 @@ const year = new Date().getFullYear();
       <nav aria-label="Company">
         <h2 class="footer__title">Company</h2>
         <ul class="footer__list">
-          {nav.map((n) => <li><GrowthMark class="footer__bullet" /><a href={n.href}>{n.label}</a></li>)}
+          {nav.map((n) => <li><BrandMark class="footer__bullet" /><a href={n.href}>{n.label}</a></li>)}
         </ul>
       </nav>
       <nav aria-label="Services">
         <h2 class="footer__title">Services</h2>
         <ul class="footer__list">
-          {services.map((s) => <li><GrowthMark class="footer__bullet" /><a href={servicePath(s.slug)}>{s.name}</a></li>)}
+          {services.map((s) => <li><BrandMark class="footer__bullet" /><a href={servicePath(s.slug)}>{s.name}</a></li>)}
         </ul>
       </nav>
       <div>

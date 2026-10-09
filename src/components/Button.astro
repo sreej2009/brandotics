@@ -1,6 +1,6 @@
 ---
-import GrowthMark from './GrowthMark.astro';
+import BrandMark from './BrandMark.astro';
 interface Props { href: string; variant?: 'primary' | 'light'; class?: string }
 const { href, variant = 'primary', class: cls } = Astro.props;
 ---
-<a class:list={['btn', `btn--${variant}`, cls]} href={href}><span><slot /></span><GrowthMark class="btn__mark" /></a>
+<a class:list={['btn', `btn--${variant}`, cls]} href={href}><span><slot /></span><BrandMark class="btn__mark" /></a>
