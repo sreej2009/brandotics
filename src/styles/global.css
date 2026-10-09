@@ -153,11 +153,13 @@ main { overflow-x: clip; }
 
 /* ---------- Hero ---------- */
 .hero { background: var(--cream); position: relative; overflow: hidden; }
-.hero__inner { position: relative; min-height: min(80vh, 862px); display: flex; align-items: flex-end; padding-block: 150px 180px; }
+/* Sized to the viewport so the whole hero, photo included, is visible without scrolling (header is 82px). */
+.hero__inner { position: relative; min-height: min(calc(100svh - 82px), 862px); display: flex; align-items: center; padding-block: clamp(36px, 6vh, 110px); }
+.hero .heading--xl { font-size: clamp(64px, min(11.8vw, 20vh), 170px); }
 .hero__content { position: relative; z-index: 2; max-width: 1000px; }
-.hero .eyebrow { margin-bottom: 44px; }
-.hero__text { max-width: 520px; margin: 46px 0 60px; }
-.hero__media { position: absolute; z-index: 1; right: -50px; bottom: 0; width: min(68%, 930px); }
+.hero .eyebrow { margin-bottom: clamp(24px, 4.5vh, 44px); }
+.hero__text { max-width: 520px; margin: clamp(24px, 4.5vh, 46px) 0 clamp(28px, 5.5vh, 60px); }
+.hero__media { position: absolute; z-index: 1; right: -50px; bottom: 0; width: min(68%, 930px, 96vh); }
 .hero__img { display: block; width: 100%; height: auto; aspect-ratio: 1850 / 850; object-fit: contain; object-position: center bottom; }
 .hero__mark { position: absolute; width: 19%; right: 4%; top: -4%; color: var(--accent); z-index: 2; animation: rise 7s ease-in-out infinite alternate; }
 @keyframes rise { to { transform: translate(6px, -10px); } }
@@ -397,7 +399,7 @@ main { overflow-x: clip; }
   .nav__sub li + li { border-top: 0; }
   .nav__cta { margin-top: 26px; justify-content: center; }
 
-  .hero__inner { padding-block: 100px 120px; }
+  .hero__inner { padding-block: clamp(36px, 6vh, 100px); }
   .hero__media { width: 66%; right: -30px; }
   .services-intro, .about-split, .why-split, .contact__grid { grid-template-columns: 1fr; }
   .split-head { grid-template-columns: 1fr; gap: 26px; align-items: start; }
