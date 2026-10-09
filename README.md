@@ -27,6 +27,13 @@ In `public/assets/`: `brandotics-wordmark.png` (header and footer logo),
 `hero-man-pointing.png` (home hero) and `brandotics-banner.png` (CTA box background).
 Section photos are in `public/assets/images/`, assigned to pages in `src/data/images.ts`.
 
+## Client logos (switched off)
+
+The home page has an "Our Clients" logo band between the channels and team sections.
+It is hidden until `confirmed` is set to `true` in `src/data/clients.ts`; only do that once
+every listed brand is a real client that has agreed to be shown. Logos are in
+`public/assets/logos/`.
+
 ## Placeholders to replace
 
 - **Favicon**: `public/favicon.svg`

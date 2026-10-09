@@ -1,0 +1,19 @@
+---
+// Full-width band of client logos in a bordered grid (see src/data/clients.ts).
+// The supplied logo files have white backgrounds; `mix-blend-mode: multiply`
+// in the CSS lets the cream band show through without altering the artwork.
+import Eyebrow from './Eyebrow.astro';
+import { clients } from '../data/clients';
+---
+<section class="clients" aria-label={clients.eyebrow}>
+  <div class="container">
+    <Eyebrow text={clients.eyebrow} center />
+    <ul class="clients__grid" style={`--count:${clients.logos.length}`}>
+      {clients.logos.map((logo) => (
+        <li class="clients__cell" data-reveal>
+          <img src={logo.src} alt={`${logo.name} logo`} width="768" height="512" loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

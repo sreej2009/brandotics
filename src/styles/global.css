@@ -268,6 +268,17 @@ main { overflow-x: clip; }
 .channels__mark { width: 160px; color: var(--accent); margin-top: 20px; }
 .channels__head .lead { max-width: none; }
 
+/* ---------- Clients ---------- */
+.clients { background: var(--cream); padding-block: 96px 104px; }
+.clients .eyebrow { margin-bottom: 44px; }
+/* Divider lines only between cells: each cell draws its right and bottom edge,
+   and the grid clips the outermost ones. */
+.clients__grid { display: grid; grid-template-columns: repeat(min(var(--count), 4), 1fr); overflow: hidden; }
+.clients__cell { display: grid; place-items: center; padding: 34px 28px; margin: 0 -1px -1px 0; border: solid var(--border-strong); border-width: 0 1px 1px 0; }
+.clients__cell img { display: block; width: 100%; max-width: 250px; height: auto; max-height: 170px; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.4s var(--ease); }
+.clients__cell:hover img { transform: scale(1.05); }
+.clients + .team { padding-top: var(--section); }
+
 /* ---------- Team ---------- */
 .team { padding-top: 0; }
 .team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
@@ -410,6 +421,7 @@ main { overflow-x: clip; }
   .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .team__grid { grid-template-columns: repeat(2, 1fr); }
+  .clients__grid { grid-template-columns: repeat(2, 1fr); }
   .channels__head { grid-template-columns: 100px 1fr; gap: 40px; }
   .channels__mark { width: 100px; }
   .about-split__media { max-width: 620px; }
@@ -462,6 +474,10 @@ main { overflow-x: clip; }
   .stat__label { font-size: 24px; }
 
   .team__grid { gap: 20px 14px; }
+  .clients { padding-block: 64px 70px; }
+  .clients .eyebrow { margin-bottom: 28px; }
+  .clients__cell { padding: 22px 14px; }
+  .clients__cell img { max-height: 110px; }
   .member__name { font-size: 21px; margin-top: 16px; }
   .channels__head { grid-template-columns: 1fr; gap: 24px; }
   .channels__mark { width: 70px; margin-top: 0; }

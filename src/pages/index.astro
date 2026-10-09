@@ -12,6 +12,7 @@ import SkillBars from '../components/SkillBars.astro';
 import Collage from '../components/Collage.astro';
 import ProcessSection from '../components/ProcessSection.astro';
 import ChannelsSection from '../components/ChannelsSection.astro';
+import ClientsSection from '../components/ClientsSection.astro';
 import TeamSection from '../components/TeamSection.astro';
 import ContactSection from '../components/ContactSection.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -19,6 +20,7 @@ import CtaBox from '../components/CtaBox.astro';
 import { hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
 import { services, servicePath } from '../data/services';
 import { homeImages } from '../data/images';
+import { clients } from '../data/clients';
 ---
 <Base>
   <section class="hero">
@@ -88,6 +90,7 @@ import { homeImages } from '../data/images';
 
   <ProcessSection />
   <ChannelsSection />
+  {clients.confirmed && <ClientsSection />}
   <TeamSection {...team} />
   <ContactSection {...talk} />
   <FaqSection />
