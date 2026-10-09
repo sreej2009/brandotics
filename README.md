@@ -39,12 +39,11 @@ The three posts in `src/data/blog.ts` are sample articles for development, label
 "Sample article" on the site. Replace them with real articles and set `sample: false`
 (or remove the flag) before launch. Pages: `/blog/` and `/blog/<slug>/`.
 
-## Client logos (switched off)
+## Client logos
 
-The home page has an "Our Clients" logo band between the channels and team sections.
-It is hidden until `confirmed` is set to `true` in `src/data/clients.ts`; only do that once
-every listed brand is a real client that has agreed to be shown. Logos are in
-`public/assets/logos/`.
+The home page shows an "Our Clients" logo band between the channels and team sections.
+Logos are listed in `src/data/clients.ts` and stored in `public/assets/logos/`. Only add
+confirmed clients; set `confirmed` to `false` there to hide the section.
 
 ## Placeholders to replace
 

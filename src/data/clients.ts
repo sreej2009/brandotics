@@ -1,13 +1,12 @@
 // Client logo showcase on the home page.
 //
-// IMPORTANT: showing a company's logo under "Our Clients" is a public claim
-// that Brandotics has worked for that company. The section therefore stays
-// hidden until `confirmed` is set to true by someone who can vouch that every
-// brand listed below is a real Brandotics client and has agreed to be shown.
-// Remove any logo that is not approved before switching it on.
+// Showing a company's logo under "Our Clients" is a public claim that
+// Brandotics has worked for that company. The site owner confirmed the four
+// brands below as clients on 2026-10-09. Only add logos of confirmed clients;
+// set `confirmed` to false to hide the whole section.
 
 export const clients = {
-  confirmed: false,
+  confirmed: true,
   eyebrow: 'Our Clients',
   logos: [
     { name: 'ATC Japan', src: '/assets/logos/atc-japan.png' },
