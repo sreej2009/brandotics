@@ -12,7 +12,7 @@ const { eyebrow, heading, text, button, href = '/contact/' } = Astro.props;
       {eyebrow && <p class="cta__eyebrow">{eyebrow}</p>}
       <Heading text={heading} />
       {text && <p class="cta__text">{text}</p>}
-      <Button href={href} variant="ghost">{button}</Button>
+      <Button href={href}>{button}</Button>
     </div>
   </div>
 </section>

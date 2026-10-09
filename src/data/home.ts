@@ -1,5 +1,5 @@
 // Home page copy, taken from brandotics-content.pdf (pages 1–7).
-// Heading markup: {o:…} outline, {oa:…} orange outline, {a:…} orange, | line break.
+// Heading markup: {o:…} outline, {oa:…} accent outline, {a:…} accent, | line break.
 
 export const hero = {
   eyebrow: 'We Are Digital Marketing Experts',

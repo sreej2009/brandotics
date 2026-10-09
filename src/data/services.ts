@@ -1,5 +1,5 @@
 // Service page copy, taken from brandotics-content.pdf (pages 8–25).
-// Heading markup: {o:…} outline, {oa:…} orange outline, {a:…} orange, | line break.
+// Heading markup: {o:…} outline, {oa:…} accent outline, {a:…} accent, | line break.
 
 export interface Service {
   slug: string;
