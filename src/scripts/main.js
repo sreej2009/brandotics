@@ -48,6 +48,14 @@ if (navToggle && nav) {
   });
 }
 
+/* ---------- Sticky header shadow ---------- */
+const header = document.querySelector('.header');
+if (header) {
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 /* ---------- Scroll-triggered effects ---------- */
 function onVisible(elements, callback, options = { threshold: 0.15 }) {
   if (!elements.length) return;

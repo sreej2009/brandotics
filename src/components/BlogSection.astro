@@ -1,0 +1,25 @@
+---
+// Home page blog teaser: heading, intro, link to the listing, latest posts.
+import Eyebrow from './Eyebrow.astro';
+import Heading from './Heading.astro';
+import Button from './Button.astro';
+import PostCard from './PostCard.astro';
+import { blog, posts } from '../data/blog';
+---
+<section class="section blog-teaser">
+  <div class="container">
+    <div class="blog-head">
+      <div>
+        <Eyebrow text={blog.eyebrow} />
+        <Heading text={blog.heading} />
+      </div>
+      <div class="blog-head__aside">
+        <p>{blog.intro}</p>
+        <Button href="/blog/">{blog.button}</Button>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      {posts.slice(0, 3).map((post) => <PostCard post={post} />)}
+    </div>
+  </div>
+</section>

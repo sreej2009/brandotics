@@ -27,6 +27,12 @@ In `public/assets/`: `brandotics-wordmark.png` (header and footer logo),
 `hero-man-pointing.png` (home hero) and `brandotics-banner.png` (CTA box background).
 Section photos are in `public/assets/images/`, assigned to pages in `src/data/images.ts`.
 
+## Blog (sample content)
+
+The three posts in `src/data/blog.ts` are sample articles for development, labelled
+"Sample article" on the site. Replace them with real articles and set `sample: false`
+(or remove the flag) before launch. Pages: `/blog/` and `/blog/<slug>/`.
+
 ## Client logos (switched off)
 
 The home page has an "Our Clients" logo band between the channels and team sections.

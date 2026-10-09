@@ -1,11 +1,11 @@
 ---
 import Heading from './Heading.astro';
-interface Props { title: string; crumb: string; parent?: { label: string; href: string } }
-const { title, crumb, parent } = Astro.props;
+interface Props { title: string; crumb: string; parent?: { label: string; href: string }; size?: 'lg' | 'md' }
+const { title, crumb, parent, size = 'lg' } = Astro.props;
 ---
 <section class="page-hero">
   <div class="container">
-    <Heading tag="h1" text={title} />
+    <Heading tag="h1" text={title} size={size} />
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>

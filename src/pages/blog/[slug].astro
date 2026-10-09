@@ -1,0 +1,58 @@
+---
+// One template for every article. Content lives in src/data/blog.ts.
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Photo from '../../components/Photo.astro';
+import Button from '../../components/Button.astro';
+import PostCard from '../../components/PostCard.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import { posts, type Post } from '../../data/blog';
+import { cta } from '../../data/home';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+interface Props { post: Post }
+const { post } = Astro.props;
+const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+---
+<Base title={post.title} description={post.excerpt}>
+  <PageHero title={post.title} crumb={post.category} parent={{ label: 'Blog', href: '/blog/' }} size="md" />
+
+  <article class="section article">
+    <div class="container article__inner">
+      <p class="post-card__meta">
+        <span class="tag">{post.category}</span>
+        {post.sample && <span class="tag tag--sample">Sample article</span>}
+      </p>
+      {post.sample && (
+        <p class="article__notice" role="note">
+          This is a sample article included for development. It will be replaced with a real Brandotics article before launch.
+        </p>
+      )}
+      <Photo photo={post.image} ratio="2 / 1" eager class="article__image" />
+      <p class="article__lede">{post.excerpt}</p>
+      {post.body.map((block) => (
+        <>
+          {block.heading && <h2 class="subhead">{block.heading}</h2>}
+          {block.paragraphs.map((p) => <p class="article__p">{p}</p>)}
+        </>
+      ))}
+      <div class="article__back"><Button href="/blog/">View All Articles</Button></div>
+    </div>
+  </article>
+
+  {others.length > 0 && (
+    <section class="section section--flush-top">
+      <div class="container">
+        <h2 class="heading heading--md article__more">More Articles</h2>
+        <div class="grid grid--3">
+          {others.map((p) => <PostCard post={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaBox {...cta} />
+</Base>

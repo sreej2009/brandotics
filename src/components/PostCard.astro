@@ -1,0 +1,20 @@
+---
+import Photo from './Photo.astro';
+import { postPath, type Post } from '../data/blog';
+interface Props { post: Post; tag?: 'h2' | 'h3' }
+const { post, tag: Tag = 'h3' } = Astro.props;
+---
+<article class="post-card" data-reveal>
+  <div class="post-card__media">
+    <Photo photo={{ ...post.image, alt: '' }} ratio="3 / 2" />
+  </div>
+  <div class="post-card__body">
+    <p class="post-card__meta">
+      <span class="tag">{post.category}</span>
+      {post.sample && <span class="tag tag--sample">Sample article</span>}
+    </p>
+    <Tag class="post-card__title"><a href={postPath(post.slug)}>{post.title}</a></Tag>
+    <p class="post-card__excerpt">{post.excerpt}</p>
+    <span class="post-card__more" aria-hidden="true">Read More</span>
+  </div>
+</article>

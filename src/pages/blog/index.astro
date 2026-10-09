@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import PostCard from '../../components/PostCard.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import { blog, posts } from '../../data/blog';
+import { cta } from '../../data/home';
+---
+<Base title="Blog" description={blog.intro}>
+  <PageHero title={blog.heading} crumb="Blog" />
+
+  <section class="section">
+    <div class="container">
+      <p class="lead blog-intro">{blog.intro}</p>
+      <div class="grid grid--3">
+        {posts.map((post) => <PostCard post={post} tag="h2" />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBox {...cta} />
+</Base>
