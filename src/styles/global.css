@@ -157,8 +157,8 @@ main { overflow-x: clip; }
 .hero__text { max-width: 520px; margin: 46px 0 60px; }
 .hero__media { position: absolute; z-index: 1; right: 0; bottom: 0; width: min(36%, 480px); }
 .hero__media .ph { border-bottom: 0; }
-.hero__mark { position: absolute; width: 40%; left: -20%; bottom: 9%; color: var(--accent); z-index: 2; animation: spin 40s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.hero__mark { position: absolute; width: 40%; left: -20%; bottom: 9%; color: var(--accent); z-index: 2; animation: rise 7s ease-in-out infinite alternate; }
+@keyframes rise { to { transform: translate(6px, -10px); } }
 
 .page-hero { background: var(--cream); text-align: center; padding-block: 140px 150px; }
 .page-hero--tall { padding-block: 180px; }

@@ -4,6 +4,7 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Heading from '../components/Heading.astro';
 import Button from '../components/Button.astro';
 import Asterisk from '../components/Asterisk.astro';
+import GrowthMark from '../components/GrowthMark.astro';
 import Placeholder from '../components/Placeholder.astro';
 import Card from '../components/Card.astro';
 import Feature from '../components/Feature.astro';
@@ -29,7 +30,7 @@ import { services, servicePath } from '../data/services';
         <Button href="/contact/">{hero.button}</Button>
       </div>
       <div class="hero__media" data-reveal>
-        <Asterisk class="hero__mark" />
+        <GrowthMark class="hero__mark" />
         <Placeholder label="Hero image" tone="paper" ratio="4 / 5" />
       </div>
     </div>
