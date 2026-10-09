@@ -25,12 +25,12 @@ Copy comes from `brandotics-content.pdf`; the visual design follows the agreed r
 
 In `public/assets/`: `brandotics-wordmark.png` (header and footer logo),
 `hero-man-pointing.png` (home hero) and `brandotics-banner.png` (CTA box background).
+Section photos are in `public/assets/images/`, assigned to pages in `src/data/images.ts`.
 
 ## Placeholders to replace
 
 - **Favicon**: `public/favicon.svg`
-- **Images**: every `<Placeholder />` (about, service pages, collages)
-- **Team**: `src/components/TeamSection.astro` (names, roles, photos)
+- **Team**: `src/components/TeamSection.astro` (names, roles; photos currently use the generic avatar)
 - **Contact details and social links**: `src/data/site.ts`
 - **Contact form delivery**: set `formEndpoint` in `src/data/site.ts`. Until then the form
   validates but sends nothing, and tells the visitor so.

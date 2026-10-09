@@ -1,9 +1,9 @@
 ---
 // PLACEHOLDER TEAM GRID: no team member names, roles or photos were supplied,
-// so each slot is an explicitly labelled placeholder.
+// so each slot shows the supplied generic avatar with explicit "to be added" text.
 import Eyebrow from './Eyebrow.astro';
 import Heading from './Heading.astro';
-import Placeholder from './Placeholder.astro';
+import { teamAvatar } from '../data/images';
 interface Props { eyebrow: string; heading: string; text: string }
 const { eyebrow, heading, text } = Astro.props;
 ---
@@ -17,7 +17,9 @@ const { eyebrow, heading, text } = Astro.props;
     <ul class="team__grid" data-placeholder="team">
       {[1, 2, 3, 4].map((n) => (
         <li class="member" data-reveal>
-          <Placeholder label={`Team photo ${n}`} tone={n % 2 ? 'light' : 'peach'} ratio="4 / 5" />
+          <div class:list={['member__photo', { 'member__photo--alt': n % 2 === 0 }]}>
+            <img src={teamAvatar} alt="" width="600" height="848" loading="lazy" decoding="async" />
+          </div>
           <p class="member__name tbd">Name to be added</p>
           <p class="member__role tbd">Role to be added</p>
         </li>

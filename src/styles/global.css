@@ -179,14 +179,8 @@ main { overflow-x: clip; }
 .crumbs a { color: var(--accent-text); }
 .crumbs a:hover { text-decoration: underline; }
 
-/* ---------- Placeholders ---------- */
-.ph { position: relative; overflow: hidden; display: flex; align-items: flex-end; width: 100%; background: var(--cream); color: var(--accent); }
-.ph--dark, .ph--accent { background: var(--accent); color: var(--on-accent); }
-.ph--peach { background: var(--cream-deep); }
-.ph--paper { background: var(--beige); }
-.ph::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 22px, color-mix(in srgb, var(--ink) 7%, transparent) 22px 23px); pointer-events: none; }
-.ph__mark { position: absolute; width: 78%; right: -16%; top: -12%; opacity: 0.5; }
-.ph__label { position: relative; z-index: 1; margin: 16px; padding: 7px 10px 6px; font-size: 11px; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; background: var(--beige); color: var(--ink); border: 1px dashed var(--ink); }
+/* ---------- Photos ---------- */
+.photo { display: block; width: 100%; height: auto; object-fit: cover; background: var(--cream); }
 
 /* ---------- Grids & cards ---------- */
 .grid { display: grid; gap: 30px; }
@@ -225,7 +219,7 @@ main { overflow-x: clip; }
 .feature__text { font-size: 14px; line-height: 1.4; letter-spacing: -0.3px; margin-top: 10px; }
 .about-split__media { position: relative; padding: 0 0 48px 96px; }
 .about-split__mark { position: absolute; width: 190px; right: -30px; top: -84px; color: var(--accent); z-index: 0; }
-.about-split__media .ph { position: relative; z-index: 1; align-items: flex-start; }
+.about-split__media .photo { position: relative; z-index: 1; }
 .about-split__tile { position: absolute; z-index: 2; left: 0; bottom: 0; width: 38%; aspect-ratio: 1; background: var(--accent); color: var(--on-accent); border: 2px solid var(--bg); border-width: 2px 2px 0 0; display: grid; place-items: center; }
 .about-split__tile .brand-mark { width: 58%; }
 
@@ -277,6 +271,10 @@ main { overflow-x: clip; }
 /* ---------- Team ---------- */
 .team { padding-top: 0; }
 .team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+/* Generic avatar: the PNG has a white background, so multiply blends it into the tile. */
+.member__photo { aspect-ratio: 4 / 5; background: var(--cream); display: flex; align-items: flex-end; justify-content: center; padding: 12% 14% 0; overflow: hidden; }
+.member__photo--alt { background: var(--cream-deep); }
+.member__photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; mix-blend-mode: multiply; }
 .member__name { font-family: var(--font-head); font-weight: 600; font-size: 25px; line-height: 1; text-transform: uppercase; margin-top: 26px; font-style: normal; }
 .member__role { font-size: 14px; margin-top: 8px; }
 

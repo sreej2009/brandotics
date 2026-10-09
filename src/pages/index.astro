@@ -4,7 +4,7 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Heading from '../components/Heading.astro';
 import Button from '../components/Button.astro';
 import BrandMark from '../components/BrandMark.astro';
-import Placeholder from '../components/Placeholder.astro';
+import Photo from '../components/Photo.astro';
 import Card from '../components/Card.astro';
 import Feature from '../components/Feature.astro';
 import StatsBand from '../components/StatsBand.astro';
@@ -18,6 +18,7 @@ import FaqSection from '../components/FaqSection.astro';
 import CtaBox from '../components/CtaBox.astro';
 import { hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
 import { services, servicePath } from '../data/services';
+import { homeImages } from '../data/images';
 ---
 <Base>
   <section class="hero">
@@ -62,7 +63,7 @@ import { services, servicePath } from '../data/services';
       </div>
       <div class="about-split__media" data-reveal>
         <BrandMark class="about-split__mark" />
-        <Placeholder label="About image" tone="light" ratio="1 / 1" />
+        <Photo photo={homeImages.approach} ratio="1 / 1" />
         <div class="about-split__tile" aria-hidden="true"><BrandMark variant="outline" stroke={2} /></div>
       </div>
     </div>
@@ -72,7 +73,7 @@ import { services, servicePath } from '../data/services';
 
   <section class="section">
     <div class="container why-split">
-      <Collage labelA="Why work with us, image 1" labelB="Why work with us, image 2" />
+      <Collage a={homeImages.whyA} b={homeImages.whyB} />
       <div>
         <Eyebrow text={why.eyebrow} />
         <Heading text={why.heading} />

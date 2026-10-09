@@ -1,0 +1,15 @@
+---
+// A supplied photo cropped to a slot's aspect ratio with object-fit: cover
+// (the photo keeps its proportions; only the overflow is cropped).
+import type { Photo } from '../data/images';
+interface Props { photo: Photo; ratio: string; eager?: boolean; class?: string }
+const { photo, ratio, eager = false, class: cls } = Astro.props;
+---
+<img
+  class:list={['photo', cls]}
+  src={photo.src}
+  alt={photo.alt}
+  style={`aspect-ratio:${ratio};object-position:${photo.position ?? '50% 50%'}`}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+/>

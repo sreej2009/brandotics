@@ -5,7 +5,8 @@ import PageHero from '../components/PageHero.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Heading from '../components/Heading.astro';
 import BrandMark from '../components/BrandMark.astro';
-import Placeholder from '../components/Placeholder.astro';
+import Photo from '../components/Photo.astro';
+import { aboutImages } from '../data/images';
 import Card from '../components/Card.astro';
 import Feature from '../components/Feature.astro';
 import Collage from '../components/Collage.astro';
@@ -48,7 +49,7 @@ const cards = [
       </div>
       <div class="about-split__media" data-reveal>
         <BrandMark class="about-split__mark" />
-        <Placeholder label="About Brandotics image" tone="light" ratio="1 / 1" />
+        <Photo photo={aboutImages.main} ratio="1 / 1" eager />
         <div class="about-split__tile" aria-hidden="true"><BrandMark variant="outline" stroke={2} /></div>
       </div>
     </div>
@@ -58,7 +59,7 @@ const cards = [
 
   <section class="section">
     <div class="container why-split">
-      <Collage labelA="Our experience, image 1" labelB="Our experience, image 2" />
+      <Collage a={aboutImages.experienceB} b={aboutImages.experienceA} />
       <div>
         <Eyebrow text="Our Experience. Your Advantage." />
         <Heading text="Knowledge {o:Built}|Through {a:Experience.}" />
