@@ -115,9 +115,11 @@ main { overflow-x: clip; }
 /* ---------- Header ---------- */
 .header { background: var(--cream); position: relative; z-index: 50; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 81px; border-bottom: 1px solid var(--border); }
-.logo { display: inline-flex; align-items: center; gap: 4px; color: var(--ink); }
-.logo__text { font-family: var(--font-head); font-weight: 800; font-size: 46px; line-height: 0.8; letter-spacing: -1px; text-transform: uppercase; padding-top: 6px; }
-.logo__mark { width: 36px; height: 36px; color: var(--accent); }
+/* The wordmark file has transparent padding: lettering is 46% of its height.
+   --logo-h is the image height; negative margins trim the empty padding. */
+.logo { --logo-h: 74px; display: inline-flex; align-items: center; flex: none; }
+.logo img { display: block; height: var(--logo-h); width: auto; max-width: none; object-fit: contain; margin: calc(var(--logo-h) * -0.2) 0 calc(var(--logo-h) * -0.24) calc(var(--logo-h) * -0.07); }
+.footer .logo { --logo-h: 92px; }
 
 .nav { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 30px; }
 .nav__list { display: flex; align-items: center; gap: 30px; margin-inline: auto; }
@@ -155,9 +157,9 @@ main { overflow-x: clip; }
 .hero__content { position: relative; z-index: 2; max-width: 1000px; }
 .hero .eyebrow { margin-bottom: 44px; }
 .hero__text { max-width: 520px; margin: 46px 0 60px; }
-.hero__media { position: absolute; z-index: 1; right: 0; bottom: 0; width: min(36%, 480px); }
-.hero__media .ph { border-bottom: 0; }
-.hero__mark { position: absolute; width: 40%; left: -20%; bottom: 9%; color: var(--accent); z-index: 2; animation: rise 7s ease-in-out infinite alternate; }
+.hero__media { position: absolute; z-index: 1; right: -50px; bottom: 0; width: min(68%, 930px); }
+.hero__img { display: block; width: 100%; height: auto; aspect-ratio: 1850 / 850; object-fit: contain; object-position: center bottom; }
+.hero__mark { position: absolute; width: 19%; right: 4%; top: -4%; color: var(--accent); z-index: 2; animation: rise 7s ease-in-out infinite alternate; }
 @keyframes rise { to { transform: translate(6px, -10px); } }
 
 .page-hero { background: var(--cream); text-align: center; padding-block: 140px 150px; }
@@ -319,8 +321,8 @@ main { overflow-x: clip; }
 
 /* ---------- CTA ---------- */
 .cta { padding-bottom: var(--section); }
-.cta__box { position: relative; overflow: hidden; background: var(--cream); color: var(--ink); text-align: center; padding: 108px 30px 120px; }
-.cta__deco { position: absolute; width: 280px; left: -30px; bottom: -40px; color: var(--accent); pointer-events: none; }
+.cta__box { position: relative; overflow: hidden; background: var(--beige) url('/assets/brandotics-banner.png') right top / cover no-repeat; border: 1px solid var(--border); color: var(--ink); text-align: center; padding: 108px 30px 120px; }
+.cta__deco { position: absolute; width: 210px; left: -24px; bottom: -30px; color: var(--accent); pointer-events: none; }
 .cta__eyebrow { position: relative; color: var(--accent-text); font-family: var(--font-head); font-weight: 600; font-size: 25px; line-height: 1; letter-spacing: -0.5px; text-transform: uppercase; margin-bottom: 30px; }
 .cta__box .heading { position: relative; font-size: clamp(46px, 6.3vw, 90px); }
 .cta__text { position: relative; max-width: 680px; margin: 28px auto 0; color: var(--text); }
@@ -396,7 +398,7 @@ main { overflow-x: clip; }
   .nav__cta { margin-top: 26px; justify-content: center; }
 
   .hero__inner { padding-block: 100px 120px; }
-  .hero__media { width: 34%; opacity: 0.95; }
+  .hero__media { width: 66%; right: -30px; }
   .services-intro, .about-split, .why-split, .contact__grid { grid-template-columns: 1fr; }
   .split-head { grid-template-columns: 1fr; gap: 26px; align-items: start; }
   .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
@@ -430,15 +432,14 @@ main { overflow-x: clip; }
   .subhead { font-size: 28px; margin-top: 40px; }
 
   .header__inner { min-height: 70px; }
-  .logo__text { font-size: 38px; }
-  .logo__mark { width: 30px; height: 30px; }
+  .logo { --logo-h: 62px; }
+  .footer .logo { --logo-h: 78px; }
 
   .hero__inner { flex-direction: column; align-items: stretch; min-height: 0; padding-block: 64px 0; gap: 50px; }
   .hero .eyebrow { margin-bottom: 26px; }
   .hero__text { margin: 28px 0 36px; }
-  .hero__media { position: relative; width: 78%; margin-left: auto; }
-  .hero__media .ph { aspect-ratio: 5 / 4 !important; }
-  .hero__mark { width: 30%; left: -15%; bottom: auto; top: -15%; }
+  .hero__media { position: relative; right: auto; width: calc(100% + 2 * var(--gutter)); margin-inline: calc(-1 * var(--gutter)); }
+  .hero__mark { width: 16%; right: 6%; top: -12%; }
   .page-hero { padding-block: 80px 90px; }
 
   .grid, .grid--2, .grid--3, .grid--4, .steps, .features, .form__row, .service__lists { grid-template-columns: 1fr; }

@@ -21,10 +21,15 @@ Copy comes from `brandotics-content.pdf`; the visual design follows the agreed r
 - `src/styles/global.css`: design tokens and all styles
 - `src/scripts/main.js`: navigation, reveals, counters, progress bars, accordion, form
 
+## Brand assets
+
+In `public/assets/`: `brandotics-wordmark.png` (header and footer logo),
+`hero-man-pointing.png` (home hero) and `brandotics-banner.png` (CTA box background).
+
 ## Placeholders to replace
 
-- **Logo**: `src/components/Logo.astro` (text wordmark) and `public/favicon.svg`
-- **Images**: every `<Placeholder />` (hero, about, service pages, collages)
+- **Favicon**: `public/favicon.svg`
+- **Images**: every `<Placeholder />` (about, service pages, collages)
 - **Team**: `src/components/TeamSection.astro` (names, roles, photos)
 - **Contact details and social links**: `src/data/site.ts`
 - **Contact form delivery**: set `formEndpoint` in `src/data/site.ts`. Until then the form
