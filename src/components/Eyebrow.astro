@@ -1,6 +1,7 @@
 ---
 import BrandMark from './BrandMark.astro';
-interface Props { text: string; center?: boolean }
-const { text, center = false } = Astro.props;
+// `tag` lets a page use the label as its main heading (the home hero uses h1).
+interface Props { text: string; center?: boolean; tag?: 'p' | 'h1' }
+const { text, center = false, tag: Tag = 'p' } = Astro.props;
 ---
-<p class:list={['eyebrow', { 'eyebrow--center': center }]}><BrandMark class="eyebrow__mark" /><span>{text}</span></p>
+<Tag class:list={['eyebrow', { 'eyebrow--center': center }]}><BrandMark class="eyebrow__mark" /><span>{text}</span></Tag>
