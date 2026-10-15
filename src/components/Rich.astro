@@ -1,6 +1,7 @@
 ---
 // Renders a copy string with the two inline marks used in the content files:
-//   **text**        bold keyword (as bolded in the content document)
+//   **text**        keyword marked in the content document; shown as normal text
+//                   (switch the replacement below back to <strong>$1</strong> to bold them)
 //   [text](/path)   internal link, e.g. [Brandotics](/) for "Brandotics(Home)"
 import { url } from '../utils/url';
 interface Props { text: string; tag?: 'p' | 'span'; class?: string }
@@ -8,7 +9,7 @@ const { text, tag: Tag = 'p', class: cls } = Astro.props;
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const html = esc(text)
-  .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\*\*(.+?)\*\*/g, '$1')
   .replace(/\[(.+?)\]\((\/[^)\s]*)\)/g, (_m, label, href) => `<a class="inline-link" href="${url(href)}">${label}</a>`);
 ---
 <Tag class={cls} set:html={html} />
