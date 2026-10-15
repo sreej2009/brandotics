@@ -178,7 +178,11 @@ main { overflow-x: clip; }
 .page-hero { background: var(--cream); text-align: center; padding-block: 140px 150px; }
 .page-hero--tall { padding-block: 180px; }
 .page-hero--tall .btn { margin-top: 40px; }
+.page-hero__text { max-width: 760px; margin: 26px auto 0; }
 .crumbs { margin-top: 26px; color: var(--ink); }
+.inline-link { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.inline-link:hover { color: var(--ink); }
+strong { font-weight: 700; color: var(--ink); }
 .crumbs ol { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 8px; }
 .crumbs li + li::before { content: '–'; margin-right: 8px; }
 .crumbs a { color: var(--accent-text); }
@@ -275,13 +279,15 @@ main { overflow-x: clip; }
 
 /* ---------- Clients ---------- */
 .clients { background: var(--cream); padding-block: 96px 104px; }
-.clients .eyebrow { margin-bottom: 44px; }
+.clients .center-head { margin-bottom: 50px; }
 /* Divider lines only between cells: each cell draws its right and bottom edge,
    and the grid clips the outermost ones. */
-.clients__grid { display: grid; grid-template-columns: repeat(min(var(--count), 4), 1fr); overflow: hidden; }
+.clients__grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; }
 .clients__cell { display: grid; place-items: center; padding: 34px 28px; margin: 0 -1px -1px 0; border: solid var(--border-strong); border-width: 0 1px 1px 0; }
-.clients__cell img { display: block; width: 100%; max-width: 250px; height: auto; max-height: 170px; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.4s var(--ease); }
+.clients__cell { min-height: 190px; }
+.clients__cell img { display: block; width: auto; height: auto; max-width: min(100%, 240px); max-height: 110px; object-fit: contain; transition: transform 0.4s var(--ease); }
 .clients__cell:hover img { transform: scale(1.05); }
+.clients__cell--plate img { background: var(--ink); padding: 14px 18px; box-sizing: content-box; max-width: min(100% - 36px, 220px); }
 .clients + .team { padding-top: var(--section); }
 
 /* ---------- Team ---------- */
@@ -290,9 +296,9 @@ main { overflow-x: clip; }
 /* Generic avatar: the PNG has a white background, so multiply blends it into the tile. */
 .member__photo { aspect-ratio: 4 / 5; background: var(--cream); display: flex; align-items: flex-end; justify-content: center; padding: 12% 14% 0; overflow: hidden; }
 .member__photo--alt { background: var(--cream-deep); }
-.member__photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; mix-blend-mode: multiply; }
-.member__name { font-family: var(--font-head); font-weight: 600; font-size: 25px; line-height: 1; text-transform: uppercase; margin-top: 26px; font-style: normal; }
-.member__role { font-size: 14px; margin-top: 8px; }
+.member__photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.member__name { font-family: var(--font-head); font-weight: 600; font-size: 25px; line-height: 1; text-transform: uppercase; margin-top: 26px; color: var(--ink); }
+.member__role { font-size: 14px; margin-top: 8px; color: var(--accent-text); }
 
 /* ---------- Contact / form ---------- */
 .contact { padding-top: 0; }
@@ -462,6 +468,7 @@ main { overflow-x: clip; }
   .blog-head__aside { max-width: 560px; }
   .team__grid { grid-template-columns: repeat(2, 1fr); }
   .clients__grid { grid-template-columns: repeat(2, 1fr); }
+  .clients__cell:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .channels__head { grid-template-columns: 100px 1fr; gap: 40px; }
   .channels__mark { width: 100px; }
   .about-split__media { max-width: 620px; }
@@ -516,9 +523,10 @@ main { overflow-x: clip; }
 
   .team__grid { gap: 20px 14px; }
   .clients { padding-block: 64px 70px; }
-  .clients .eyebrow { margin-bottom: 28px; }
+  .clients .center-head { margin-bottom: 32px; }
   .clients__cell { padding: 22px 14px; }
-  .clients__cell img { max-height: 110px; }
+  .clients__cell { min-height: 120px; }
+  .clients__cell img { max-height: 64px; }
   .member__name { font-size: 21px; margin-top: 16px; }
   .channels__head { grid-template-columns: 1fr; gap: 24px; }
   .channels__mark { width: 70px; margin-top: 0; }

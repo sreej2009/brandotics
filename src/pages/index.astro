@@ -19,23 +19,24 @@ import ContactSection from '../components/ContactSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import CtaBox from '../components/CtaBox.astro';
 import BlogSection from '../components/BlogSection.astro';
-import { hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
+import Rich from '../components/Rich.astro';
+import { homeSeo, hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
 import { services, servicePath } from '../data/services';
-import { homeImages } from '../data/images';
+import { homeImages, heroAlt } from '../data/images';
 import { clients } from '../data/clients';
 ---
-<Base>
+<Base title={homeSeo.title} description={homeSeo.description}>
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__content">
         <Eyebrow text={hero.eyebrow} />
         <Heading tag="h1" size="xl" text={hero.heading} />
-        <p class="hero__text">{hero.text}</p>
-        <Button href="/contact/">{hero.button}</Button>
+        <Rich class="hero__text" text={hero.text} />
+        <Button href="/contact">{hero.button}</Button>
       </div>
       <div class="hero__media" data-reveal>
         <BrandMark class="hero__mark" />
-        <img class="hero__img" src={url('/assets/hero-man-pointing.png')} alt="Smiling man in sunglasses and an olive jacket pointing towards the viewer with both hands" width="1850" height="850" fetchpriority="high" decoding="async" />
+        <img class="hero__img" src={url('/assets/hero-man-pointing.png')} alt={heroAlt} width="1850" height="850" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>
@@ -48,7 +49,7 @@ import { clients } from '../data/clients';
       <div class="services-intro__text">
         <Eyebrow text={whatWeDo.eyebrow} />
         <Heading text={whatWeDo.heading} />
-        <p class="lead lead--cols">{whatWeDo.text}</p>
+        <Rich class="lead lead--cols" text={whatWeDo.text} />
         <Button href="/services/">{whatWeDo.button}</Button>
       </div>
     </div>
@@ -59,10 +60,10 @@ import { clients } from '../data/clients';
       <div>
         <Eyebrow text={approach.eyebrow} />
         <Heading text={approach.heading} />
-        {approach.paragraphs.map((p) => <p class="lead">{p}</p>)}
+        {approach.paragraphs.map((p) => <Rich class="lead" text={p} />)}
         <div class="features">
           {approach.features.map((f) => <Feature {...f} />)}
-          <div class="features__action"><Button href="/about/">More About Us</Button></div>
+          <div class="features__action"><Button href="/about-us">More About Us</Button></div>
         </div>
       </div>
       <div class="about-split__media" data-reveal>
@@ -81,7 +82,7 @@ import { clients } from '../data/clients';
       <div>
         <Eyebrow text={why.eyebrow} />
         <Heading text={why.heading} />
-        <p class="lead">{why.text}</p>
+        <Rich class="lead" text={why.text} />
         <div class="features features--stack">
           {why.features.map((f) => <Feature {...f} />)}
         </div>

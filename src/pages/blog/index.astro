@@ -6,7 +6,7 @@ import CtaBox from '../../components/CtaBox.astro';
 import { blog, posts } from '../../data/blog';
 import { cta } from '../../data/home';
 ---
-<Base title="Blog" description={blog.intro}>
+<Base title={blog.seo.title} description={blog.seo.description}>
   <PageHero title={blog.heading} crumb="Blog" />
 
   <section class="section">

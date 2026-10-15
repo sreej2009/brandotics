@@ -3,15 +3,14 @@
 
 export const site = {
   name: 'Brandotics',
-  // Reused verbatim from the home hero copy in brandotics-content.pdf.
+  // Used as the footer blurb and as the fallback meta description.
   description:
-    'We help businesses build a stronger digital presence through smart marketing strategies, engaging content, and performance-focused campaigns.',
+    'Brandotics is a digital marketing agency in Kerala offering SEO, web development, social media marketing, Google Ads, and creative solutions for growth.',
 
-  // PLACEHOLDER: real contact details were not supplied.
   contact: {
-    address: null as string | null,
-    email: null as string | null,
-    phone: null as string | null,
+    address: 'Palakkad, Kerala' as string | null,
+    email: 'brandotics8005@gmail.com' as string | null,
+    phone: '+91 94881 19362' as string | null,
   },
 
   // PLACEHOLDER: add entries like { label: 'Instagram', href: 'https://…' }.
@@ -24,8 +23,8 @@ export const site = {
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
+  { label: 'About', href: '/about-us' },
   { label: 'Services', href: '/services/', children: 'services' as const },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Contact', href: '/contact/' },
+  { label: 'Contact', href: '/contact' },
 ];

@@ -17,7 +17,7 @@ interface Props { post: Post }
 const { post } = Astro.props;
 const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 ---
-<Base title={post.title} description={post.excerpt}>
+<Base title={`${post.title} | Brandotics`} description={post.excerpt}>
   <PageHero title={post.title} crumb={post.category} parent={{ label: 'Blog', href: '/blog/' }} size="md" />
 
   <article class="section article">

@@ -1,14 +1,16 @@
-// Service page copy, taken from brandotics-content.pdf (pages 8–25).
+// Service page copy, taken from Final.pdf (pages 10–33).
 // Heading markup: {o:…} outline, {oa:…} accent outline, {a:…} accent, | line break.
+// Copy markup: **bold keyword**, [link text](/path) — see src/components/Rich.astro.
 
 export interface Service {
   slug: string;
   /** Short name used in navigation and cards. */
   name: string;
   icon: string;
-  /** Page title, e.g. "SEO Services". */
-  title: string;
-  titleMarkup: string;
+  seo: { title: string; description: string };
+  /** Page H1 (heading markup) and the line under it. */
+  heading: string;
+  headingText?: string;
   /** Short description shown on the home and services overview cards. */
   summary: string;
   tagline: string;
@@ -16,24 +18,28 @@ export interface Service {
   cards: { icon: string; title: string }[];
   matters: { heading: string; intro: string; lead: string; items: string[] };
   who: { heading: string; intro: string; items: string[] };
-  why: { heading: string; paragraphs: string[]; features: { icon: string; title: string; text: string }[] };
+  why: { eyebrow: string; heading: string; paragraphs: string[]; features: { icon: string; title: string; text: string }[] };
+  faq: { q: string; a: string }[];
   cta: { heading: string; text: string };
 }
 
 export const services: Service[] = [
   {
-    slug: 'web-development',
+    slug: 'web-development-company-in-kerala',
     name: 'Web Development',
     icon: 'code',
-    title: 'Web Development Services',
-    titleMarkup: 'Web Development {a:Services}',
-    summary:
-      'Create fast, responsive, and professional websites that represent your brand and provide visitors with a smooth experience across desktop and mobile devices.',
+    seo: {
+      title: 'Web Development Company in Kerala | Brandotics',
+      description: 'Looking for a web development company in Kerala? Brandotics builds responsive, user-friendly websites to strengthen your brand and support business growth.',
+    },
+    heading: 'Web Development {a:Company in Kerala}',
+    headingText: 'Looking for a professional **web development company in Kerala**?  Brandotics builds fast, responsive, and professional websites that represent your brand.',
+    summary: 'You should get a website that is fast, mobile-friendly, professional-looking, and user-friendly in terms of information search and contacting you.',
     tagline: 'Build Better. Perform Smarter.',
     intro: [
-      'At Brandotics, our web development services help businesses establish a strong digital presence with modern, responsive, and user-friendly websites. We combine creative design, functional development, and performance-focused solutions to create websites that represent your brand and support your business goals.',
-      'Our approach goes beyond creating attractive websites. We focus on delivering seamless user experiences, intuitive navigation, mobile responsiveness, and reliable functionality. Whether you need a new business website or want to improve an existing one, our web development solutions are tailored to your requirements and target audience.',
-      'With the right combination of design, technology, and strategy, Brandotics helps turn your website into a powerful digital platform that builds credibility, engages visitors, and supports long-term business growth.',
+      'At [Brandotics](/), a **web development company in Kerala**, our web development solutions will assist your organisation in creating a powerful digital presence by developing responsive and user-friendly websites for your brand. We provide unique web development solutions for building websites that reflect your brand.',
+      'Our web development solutions go further than just providing attractive websites. Our team of **web developers in Kerala** provides solutions in terms of creating a seamless experience, intuitive navigation, responsiveness, and functionality. Whether you require a new business website or need to revamp your current website, our solutions will cater to your needs.',
+      'With the perfect mix of design, technology, and strategy, Brandotics assists you in making your website work as a powerful digital platform.',
     ],
     cards: [
       { icon: 'briefcase', title: 'Business Website Development' },
@@ -45,60 +51,54 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why Web Development Matters',
-      intro:
-        'Your website is often the first place potential customers interact with your business. A well-developed website helps create a positive first impression, communicate your value, and make it easier for visitors to explore your products or services.',
-      lead: 'A professionally developed website can help your business:',
-      items: [
-        'Build brand credibility',
-        'Improve user experience',
-        'Reach mobile and desktop audiences',
-        'Generate enquiries and conversions',
-        'Support business growth',
-      ],
+      intro: 'Your website acts as the gateway to your customers. A **web development company in Kerala** will design a good-looking and customer-friendly website for you. Your website can show off your offerings and create brand value.',
+      lead: 'The professionally designed website by the **web design company in Kerala** will be helpful for your business because',
+      items: ['Build brand credibility', 'Improve user experience', 'Reach mobile and desktop audiences', 'Generate enquiries and conversions', 'Support business growth'],
     },
     who: {
       heading: 'Who Needs Web Development Services?',
-      intro:
-        'Our web development services are designed for businesses that want to strengthen their online presence and create a website that works effectively for their audience.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'Local service providers',
-        'E-commerce businesses',
-        'Established companies',
-        'Businesses with outdated websites',
-      ],
+      intro: 'We are a **web development company in Kerala** and have developed our services specifically for companies that wish to improve their online presence and have a website that is effective for them.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'Local service providers', 'E-commerce businesses', 'Established companies', 'Businesses with outdated websites'],
     },
     why: {
+      eyebrow: 'Why Choose Brandotics?',
       heading: 'Websites {o:That Work.}|Experiences {a:That Connect.}',
       paragraphs: [
-        'At Brandotics, we believe an effective website should combine visual appeal, practical functionality, and a clear purpose. We bring together thoughtful design, modern development practices, and user-focused planning to create websites that support your business objectives.',
-        'Our approach focuses on understanding your brand, audience, and requirements before developing a suitable solution. From website structure and responsive layouts to performance improvements and ongoing support, every element is designed to deliver a smooth experience and help your business grow online.',
+        'As a **web design company Kerala** businesses can rely on, we think that for a website to be effective, it should not just be visually attractive but also functional and purposeful. It is through the combination of design, technology, and planning that we develop websites for our clients’ business goals.',
+        'This is how we do it; we take into consideration the brand, the target market, and the business needs before coming up with the right solution for them.',
       ],
       features: [
-        { icon: 'users', title: 'User-Focused Design', text: 'We create intuitive website experiences that help visitors find information and navigate your pages easily.' },
-        { icon: 'devices', title: 'Responsive Development', text: 'We build websites that adapt to different screen sizes, helping users browse across mobile phones, tablets, and desktops.' },
-        { icon: 'gauge', title: 'Performance and Reliability', text: 'We focus on efficient website structure, usability, and optimization to support a smooth browsing experience.' },
+        { icon: 'users', title: 'User-Focused Design', text: 'We provide you with a web design that enables people to access information through your website.' },
+        { icon: 'devices', title: 'Responsive Development', text: 'We create sites that work well on any screen size, allowing our users to navigate using mobile devices, tablets, or desktops.' },
+        { icon: 'gauge', title: 'Performance and Reliability', text: 'We concentrate on effective structuring, usability, and optimization of websites to facilitate easy navigation.' },
       ],
     },
+    faq: [
+      { q: 'How do I choose the best web development company in Kerala?', a: 'Previous work, clarity in the process, mobile responsiveness, and post-launch support should be considered.' },
+      { q: 'How long does it take to build a website?', a: 'It depends on the size and scope of the website. Experienced **website developers in Kerala** can build a business website faster than a complex eCommerce or customized website, depending on the requirements.' },
+      { q: 'Will my website work on mobile devices?', a: 'Yes, the website is going to be responsive, compatible with mobile phones, tablets, and computers.' },
+      { q: 'Do you provide support after the website goes live?', a: 'Yes. We offer website maintenance and support services at an additional cost to keep your website updated, secure, and running smoothly.' },
+    ],
     cta: {
       heading: 'Ready to Build Your {a:Digital Presence?}',
-      text: "Give your business a website that reflects your brand and supports your ambitions. Let's create a modern, user-friendly digital experience that connects with your audience and helps your business move forward.",
+      text: 'Create a website for your company that fits your brand identity and helps you achieve your objective. Work with a **web development company in Kerala** to create an appealing and user-friendly website.',
     },
   },
   {
-    slug: 'seo',
+    slug: 'seo-company-in-kerala',
     name: 'SEO',
     icon: 'search',
-    title: 'SEO Services',
-    titleMarkup: 'SEO {a:Services}',
-    summary:
-      'Improve your search engine visibility and attract more relevant visitors with strategic SEO focused on keywords, content, technical performance, and long-term organic growth.',
+    seo: {
+      title: 'SEO Company in Kerala | Brandotics',
+      description: 'Looking for an SEO company in Kerala? Brandotics helps improve search visibility, attract relevant visitors, and support long-term organic business growth.',
+    },
+    heading: 'SEO Company in Kerala for {a:Smarter Digital Growth}',
+    headingText: 'Want to improve your standing in the search results? Brandotics will help you get the right kind of exposure on the internet.',
+    summary: 'Optimize your Google search results and get interested customers for your product/service by doing the proper keyword research and creating quality content.',
     tagline: 'Get Found Online. Grow Beyond Limits.',
     intro: [
-      'At Brandotics, our SEO services help businesses improve their search engine visibility, attract relevant website visitors, and build a stronger online presence. We combine keyword research, on-page optimization, technical SEO, and content strategy to help your website reach people who are actively searching for your products or services.',
-      'Our approach goes beyond rankings. We focus on connecting your business with the right audience, improving the website experience, and creating opportunities for meaningful engagement and enquiries. Whether you are launching a new website or improving an established online presence, our SEO strategies are tailored to your business goals and audience.',
-      'With a clear strategy and continuous optimization, Brandotics helps turn your website into a valuable digital asset that supports long-term business growth.',
+      'The SEO services offered by Brandotics, which is an **SEO company in Kerala**, assist businesses in enhancing their search engine visibility and attracting the right set of website visitors to their site. The use of keyword research, on-page SEO, technical SEO, and content SEO will ensure that your site is found by users who are looking for your products or services.',
+      'Our SEO service at [Brandotics](/) is not just about rankings. Instead, our **SEO experts in Kerala** ensure that there is a connection between your business and the right audience, as well as providing an engaging user experience on your website. The SEO services provided by us will be custom-made to suit the purpose of your company, whether you are creating your site for the first time or upgrading your existing online presence.',
     ],
     cards: [
       { icon: 'search', title: 'Keyword Research and Strategy' },
@@ -110,60 +110,55 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why SEO matters',
-      intro:
-        'A website needs more than an attractive design to reach its full potential. Search engine optimization helps your business become more discoverable when potential customers look for relevant products, services, and information.',
-      lead: 'A well-planned SEO strategy can help your business:',
-      items: [
-        'Improve online visibility',
-        'Attract relevant visitors',
-        'Build credibility',
-        'Strengthen user experience',
-        'Build long-term value',
-      ],
+      intro: 'A website requires something more than a good look to maximise its full capabilities. An **SEO company in Kerala** will ensure that your business gets discovered by prospective clients who are searching for related goods, services, or other information.',
+      lead: 'A properly devised strategy by an **SEO specialist in Kerala** could enable your business to:',
+      items: ['Improve online visibility', 'Attract relevant visitors', 'Build credibility', 'Strengthen user experience', 'Build long-term value'],
     },
     who: {
       heading: 'Who needs SEO services?',
-      intro:
-        'Our SEO services are designed for businesses that want to improve their digital presence and make their websites more effective.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'Local service providers',
-        'E-commerce businesses',
-        'Established companies',
-        'Businesses with underperforming websites',
-      ],
+      intro: 'Our **SEO services in Kerala** are designed for businesses that want to improve their digital presence and make their websites more effective.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'Local service providers', 'E-commerce businesses', 'Established companies', 'Businesses with underperforming websites'],
     },
     why: {
+      eyebrow: 'Why choose Brandotics',
       heading: 'Smart {o:SEO.}|Meaningful {a:Progress.}',
       paragraphs: [
-        'At Brandotics, we believe effective SEO begins with a clear understanding of your business. We combine analytical thinking, relevant content, technical improvements, and ongoing evaluation to help you make informed digital marketing decisions.',
-        'Our approach prioritizes the work that aligns with your goals instead of relying on generic strategies. From identifying search opportunities to improving individual pages, each recommendation is intended to support a more useful website and a stronger organic search presence.',
+        'Being an **SEO company in Kerala**, we feel that good SEO starts with a good understanding of your business. Our strategy includes analytical skills, good content, technical expertise, and analysis to assist in taking smart decisions for your digital marketing efforts.',
+        'We do not focus on activities that can be carried out without any regard for your objectives but give preference to the activities which are aligned with your objectives.',
       ],
       features: [
-        { icon: 'users', title: 'Audience-First Strategy', text: 'We research the questions, needs, and search intent of your potential customers.' },
+        { icon: 'users', title: 'Audience-First Strategy', text: 'We conduct research into the queries, requirements, and intent of your target audience.' },
         { icon: 'chart', title: 'Data-Informed Decisions', text: 'We use relevant performance information to identify opportunities and assess progress.' },
-        { icon: 'refresh', title: 'Continuous Improvement', text: 'We review website performance and adjust recommendations as your business and search landscape evolve.' },
+        { icon: 'refresh', title: 'Continuous Improvement', text: 'We assess the performance of your site and make changes to our **SEO service in Kerala** based on your needs.' },
       ],
     },
+    faq: [
+      { q: 'How to choose the best SEO company in Kerala?', a: 'Choose an agency that communicates well, sets realistic expectations, reports transparently, and knows your business and target customers before suggesting anything.' },
+      { q: 'Does my small business need SEO?', a: 'Absolutely, if consumers search for you through the Internet. The SEO experts working for the firm will focus on those places where your firm needs it the most.' },
+      { q: 'When will I start seeing the results of SEO?', a: 'SEO is a lengthy process. Most websites begin seeing positive changes within a couple of months, but great and stable changes come over time.' },
+      { q: "What is included in Brandotics' SEO work?", a: 'These include keyword research, on-page optimization, technical audits, content optimization, local SEO, and continuous monitoring and reporting.' },
+    ],
     cta: {
       heading: 'Ready to Get More {a:From Your Website?}',
-      text: "Give your business a stronger foundation for organic growth. Let's identify SEO opportunities, improve your website visibility, and create a strategy aligned with your goals.",
+      text: 'Enhance the growth prospects for your business by relying on the support of an **SEO company in Kerala**. We will assist you in exploring SEO options to boost the visibility of your website.',
     },
   },
   {
-    slug: 'social-media-marketing',
+    slug: 'social-media-marketing-company-in-kerala',
     name: 'Social Media Marketing',
     icon: 'share',
-    title: 'Social Media Marketing Services',
-    titleMarkup: 'Social Media Marketing {a:Services}',
-    summary:
-      'Build a strong social presence with creative content, consistent communication, audience engagement, and campaigns designed to increase awareness and interaction.',
+    seo: {
+      title: 'Social Media Marketing Company in Kerala | Brandotics',
+      description: 'Choose Brandotics, a social media marketing company in Kerala, to strengthen brand awareness, engage your target audience, and grow your online presence.',
+    },
+    heading: 'Social Media Marketing {a:Company in Kerala}',
+    headingText: 'Brandotics is a creative **social media marketing company in Kerala** that helps brands to increase their visibility and become successful in creating a base of loyal customers on social media.',
+    summary: 'Create your own dynamic online identity using Instagram, Facebook, and many other social networking websites through effective posting, communication, and discussion.',
     tagline: 'Get Noticed. Build Connections. Grow Your Brand.',
     intro: [
-      'At Brandotics, our social media marketing services help businesses strengthen their online presence, connect with their target audience, and build meaningful relationships across social platforms. We combine creative content, strategic planning, audience research, and performance analysis to help your brand stand out in a competitive digital landscape.',
-      'Our approach goes beyond posting content. We focus on creating engaging experiences, developing a consistent brand identity, and encouraging meaningful interactions with your audience. Whether you are launching a new brand or looking to improve your existing social media presence, our strategies are tailored to your business goals and audience.',
-      'With creative thinking and data-informed decisions, Brandotics helps transform your social media platforms into valuable channels for brand awareness, audience engagement, and long-term business growth.',
+      'The Brandotics **Social Media Marketing Services** can help your brand to enhance its presence on the internet, reach your target audience, and build relationships through social media sites. With the help of creative content creation, strategic planning, audience research, and performance analysis, we can make your brand unique in this competitive world.',
+      'We don’t only post creative content but also create engaging experiences, maintain a consistent brand identity, and interact with your audience. Whether it’s for a new brand or enhancing your current social media presence, our social media marketing strategy will fit your business requirements and your audience.',
+      'Being a **social media marketing company in Kerala**, Brandotics offers you creative thinking mixed with intelligent decision-making to give you an enhanced social media presence.',
     ],
     cards: [
       { icon: 'compass', title: 'Social Media Strategy and Planning' },
@@ -175,35 +170,21 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why Social Media Marketing Matters',
-      intro:
-        'Social media gives your business an opportunity to reach potential customers, communicate your brand values, and build lasting connections. A consistent and well-planned social media presence helps your business remain visible and relevant where your audience spends time online.',
-      lead: 'An effective social media marketing strategy can help your business:',
-      items: [
-        'Increase brand awareness',
-        'Reach the right audience',
-        'Improve audience engagement',
-        'Generate leads and enquiries',
-        'Build customer relationships',
-      ],
+      intro: 'Having a good social media presence is one way to ensure that your business reaches the right audience and maintains visibility of your brand. This is what an experienced **social media marketing company Kerala** can do for you.',
+      lead: 'A good social media marketing plan for your business can:',
+      items: ['Increase brand awareness', 'Reach the right audience', 'Improve audience engagement', 'Generate leads and enquiries', 'Build customer relationships'],
     },
     who: {
-      heading: 'Who Needs Social Media Marketing Services?',
-      intro:
-        'Our social media marketing services are designed for businesses that want to increase their visibility, connect with customers, and grow their digital presence.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'Local brands and service providers',
-        'E-commerce businesses',
-        'Established companies',
-        'Businesses with low social media engagement',
-      ],
+      heading: 'Who Can Benefit from Our Services?',
+      intro: 'Our **social media marketing Kerala** solutions assist companies in increasing their online presence, reaching out to their intended audience, and gaining a better digital presence.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'Local brands and service providers', 'E-commerce businesses', 'Established companies', 'Businesses with low social media engagement'],
     },
     why: {
+      eyebrow: 'Why Choose Brandotics',
       heading: 'Creative {o:Content.}|Meaningful {a:Connections.}',
       paragraphs: [
-        'At Brandotics, we believe successful social media marketing starts with understanding your brand and the people you want to reach. We combine creative storytelling, consistent communication, and strategic planning to help your business build a recognizable and engaging online presence.',
-        'Our approach focuses on creating relevant content, choosing suitable platforms, and identifying opportunities to connect with your audience. From content planning and account management to advertising campaigns and performance analysis, every activity is designed to support your marketing objectives and strengthen your brand.',
+        'At [Brandotics](/), we know that a good social media marketing strategy involves knowing about your brand and the people you will reach out to. Using effective communication, storytelling, and planning, we enable our clients to create an identity for their businesses on social media platforms.',
+        'We choose the appropriate platforms and plan how we can effectively communicate with your target audiences. As a **social media marketing agency Kerala** brands can rely on, we concentrate on account management, campaigns, and analytics.',
       ],
       features: [
         { icon: 'users', title: 'Audience-Driven Content', text: 'We create content that reflects your brand identity and connects with the interests, needs, and expectations of your target audience.' },
@@ -211,24 +192,32 @@ export const services: Service[] = [
         { icon: 'gauge', title: 'Performance-Based Optimization', text: 'We monitor relevant engagement and campaign metrics to identify opportunities and improve your social media marketing efforts.' },
       ],
     },
+    faq: [
+      { q: 'Which social media platforms do you manage?', a: 'Being a **social media marketing company in Kerala**, we operate on Instagram, Facebook, LinkedIn, and  YouTube. During our planning, we suggest which channels would be more beneficial for you and save your time and money.' },
+      { q: 'Do you create the content, or do we need to provide it?', a: 'It is all up to us to create an idea for the post, write a caption, make a graphic, and even a video. If you have your own photos, information about the product, or some stories from your life, it would be great if you provided them.' },
+      { q: 'What Is the Expected Timeline for Results?', a: 'You can expect some progress in terms of likes, shares, and reach after a couple of weeks, and your followers, queries, and conversions start growing after three to six months.' },
+      { q: 'Can small businesses expand via Social Media Marketing?', a: 'Sure, small and local businesses get the maximum benefits because social media allows them to reach local customers without any additional expenses.' },
+    ],
     cta: {
       heading: 'Ready to Make Your {a:Brand Stand Out?}',
-      text: "Build a stronger connection with your audience through strategic social media marketing. Let's create engaging content, expand your reach, and develop a social media presence that supports your business goals.",
+      text: 'Collaborate with a **social media marketing company in Kerala** where your interests come first. It’s time to create content, increase your reach, and build a social media platform for the future success of your business.',
     },
   },
   {
-    slug: 'graphic-design',
+    slug: 'graphic-design-services-in-kerala',
     name: 'Graphic Design',
     icon: 'pen',
-    title: 'Graphic Design Services',
-    titleMarkup: 'Graphic Design {a:Services}',
-    summary:
-      'Give your brand a professional visual identity with creative designs for social media, advertisements, websites, promotional materials, and digital campaigns.',
+    seo: {
+      title: 'Graphic Design Services in Kerala | Brandotics',
+      description: 'Discover creative graphic design services in Kerala with Brandotics. Get professional logos, brand identity, social media creatives, brochures, and marketing designs.',
+    },
+    heading: 'Graphic Design {a:Service in Kerala}',
+    summary: 'Stand out through the use of sharp images when it comes to social media, advertisements, pamphlets, website designs, and other forms of marketing.',
     tagline: 'Design with Purpose. Make Your Brand Stand Out.',
     intro: [
-      'At Brandotics, our graphic design services help businesses communicate their ideas, express their brand identity, and capture audience attention through impactful visuals. We combine creativity, strategic thinking, and visual storytelling to create designs that reflect your brand personality and support your business goals.',
-      'Our approach goes beyond creating attractive graphics. We focus on communicating the right message, maintaining visual consistency, and creating designs that connect with your target audience. Whether you are building a new brand or refreshing your existing visual identity, our graphic design solutions are tailored to your needs and marketing objectives.',
-      'With creative concepts and thoughtful execution, Brandotics helps transform your ideas into compelling visual assets that strengthen brand recognition, improve communication, and create a lasting impression.',
+      'The graphic design services provided by Brandotics will assist you in communicating ideas, branding, and capturing the attention of the target audience with the help of graphics. We blend creativity with strategies to provide you with designs that represent your brand persona and achieve your business objectives.',
+      'In addition to designing appealing graphics for you, we ensure that the message is communicated properly, there is visual consistency, and that the design connects with the target audience. Regardless of whether you are establishing a new brand or revamping your old visual branding, our graphic design solutions will be designed to meet your needs.',
+      'With innovative ideas and efficient execution, [Brandotics](/) will assist you in converting your ideas into visual assets.',
     ],
     cards: [
       { icon: 'compass', title: 'Brand Identity and Logo Design' },
@@ -240,60 +229,55 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why Graphic Design Matters',
-      intro:
-        'Strong visual communication helps your business make a memorable first impression and communicate its message effectively. Consistent, professional design makes your brand easier to recognize and helps build trust with potential customers across digital and print platforms.',
+      intro: 'Good visual communication is essential for making a lasting impression as well as conveying your message. Good design will help you be more recognizable as well as increase trust in potential clients.',
       lead: 'Effective graphic design can help your business:',
-      items: [
-        'Build brand recognition',
-        'Communicate ideas clearly',
-        'Create a professional image',
-        'Capture audience attention',
-        'Strengthen marketing communication',
-      ],
+      items: ['Build brand recognition', 'Communicate ideas clearly', 'Create a professional image', 'Capture audience attention', 'Strengthen marketing communication'],
     },
     who: {
       heading: 'Who Needs Graphic Design Services?',
-      intro:
-        'Our graphic design services are designed for businesses that want to establish a recognizable identity, improve their marketing materials, and communicate more effectively through visuals.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'Local brands and service providers',
-        'E-commerce businesses',
-        'Established companies',
-        'Businesses refreshing their brand identity',
-      ],
+      intro: 'Our graphic design services have been specifically developed for companies that wish to create a distinctive identity and become better marketers through visuals.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'Local brands and service providers', 'E-commerce businesses', 'Established companies', 'Businesses refreshing their brand identity'],
     },
     why: {
+      eyebrow: 'Why Choose Brandotics?',
       heading: 'Creative {o:Thinking.}|Powerful {a:Visuals.}',
       paragraphs: [
-        'At Brandotics, we believe great design combines creativity with a clear purpose. We bring together visual storytelling, thoughtful design principles, and brand-focused strategies to create graphics that communicate your message and connect with your audience.',
-        'Our approach begins with understanding your brand, audience, and objectives. From developing visual identities to designing digital marketing materials, every creative element is planned to maintain consistency, communicate value, and strengthen your brand presence across different platforms.',
+        'Brandotics knows that good design is not only about having a purpose, but it should also be creative. By blending visual communication, design principles, and branding concepts, we can make sure that the designs we create convey your messages to your target audience.',
+        'Our process begins with understanding the attributes of your brand, your audience, and your purposes. We design everything with brand continuity and value communication in mind.',
       ],
       features: [
-        { icon: 'bulb', title: 'Brand-Focused Creativity', text: 'We create designs that reflect your brand personality, values, and visual identity.' },
-        { icon: 'eye', title: 'Purposeful Visual Communication', text: 'We transform ideas and messages into clear, engaging visuals that are easy for your audience to understand.' },
-        { icon: 'layers', title: 'Consistent Design Quality', text: 'We maintain a cohesive visual style across your marketing materials to help build recognition and trust.' },
+        { icon: 'bulb', title: 'Brand-Focused Creativity', text: 'We create designs that are a reflection of your brand personality and values.' },
+        { icon: 'eye', title: 'Purposeful Visual Communication', text: 'We convert concepts and communication into meaningful visuals that can easily be understood by your target audience.' },
+        { icon: 'layers', title: 'Consistent Design Quality', text: 'We provide a consistent visual look to your marketing materials in order to develop recognition and trust.' },
       ],
     },
+    faq: [
+      { q: 'What types of graphic design work do you offer?', a: "Our services include the creation of logos, brand identity, social media content, brochures, flyers, advertisements, website development, and packaging design. If you have a project that is not listed above, don't hesitate to inform us; we will tailor a solution for you." },
+      { q: 'Can you redesign my existing logo or brand visuals?', a: 'Of course. We can work on your existing brand/logo and not alter anything in terms of what is already established, or create new visuals for you. Your branding will represent your organization.' },
+      { q: 'How long does a design project usually take?', a: 'It depends on how large the project is. One creative work, like a social media post or a flyer, will be done in a relatively shorter time than developing a brand identity. You will receive a timeline at the start of the project.' },
+      { q: 'Will my designs look consistent across all my marketing materials?', a: 'Yes. All colors, fonts, and visuals will be consistent across all your social media, print, and digital materials.' },
+    ],
     cta: {
       heading: 'Ready to Bring Your {a:Brand to Life?}',
-      text: "Make your business more recognizable with creative graphic design that communicates your vision. Let's transform your ideas into impactful visuals that capture attention, connect with your audience, and support your business growth.",
+      text: 'Make sure your company is visually striking with graphic design that tells your story. We can assist you with designing graphics that will ensure your message reaches people and help promote your company.',
     },
   },
   {
-    slug: 'google-ads',
+    slug: 'google-ads-agency-in-kerala',
     name: 'Google Ads',
     icon: 'target',
-    title: 'Google Ads Services',
-    titleMarkup: 'Google Ads {a:Services}',
-    summary:
-      'Reach customers when they are actively searching for your products or services through targeted Google Ads campaigns designed to generate quality traffic, leads, and conversions.',
+    seo: {
+      title: 'Google Ads Agency in Kerala | Brandotics',
+      description: 'Choose Brandotics, a Google Ads agency in Kerala, to improve online visibility, reach potential customers, generate qualified leads, and grow your business.',
+    },
+    heading: 'Google Ads {a:Agency in Kerala}',
+    headingText: 'Brandotics is a results-focused **Google Ads agency in Kerala** that assists in contacting your prospective clients when they are looking for something and converting those clicks into inquiries and leads.',
+    summary: 'Be where your customers can find you. We help design and set up a quality Google Ads Campaign for your business.',
     tagline: 'Reach the Right People. Drive Real Results.',
     intro: [
-      'At Brandotics, our Google Ads services help businesses reach potential customers at the right moment through targeted, performance-focused advertising campaigns. We combine keyword research, audience targeting, compelling ad copy, and campaign optimization to help your business improve online visibility and attract relevant traffic.',
-      'Our approach goes beyond generating clicks. We focus on reaching people actively searching for your products or services, improving advertising efficiency, and creating opportunities for enquiries, leads, and sales. Whether you are launching your first campaign or improving existing advertising performance, our Google Ads strategies are tailored to your business goals and budget.',
-      'With strategic planning and continuous optimization, Brandotics helps turn paid search advertising into a valuable channel for reaching your audience, generating qualified leads, and supporting measurable business growth.',
+      'Through our **Google Ads Management services** at Brandotics, we ensure that your business reaches its potential customers at just the right time through well-planned advertising campaigns. Through keyword analysis, audience targeting, creative ad writing, and more, we help make your business better known and get relevant traffic to your site.',
+      'While click generation is not all we aim to do, our methods will allow your company to reach people who are searching for your offerings. We optimize your advertising campaigns to be more efficient and generate new enquiries, leads, and sales. Be it your first Google Ads campaign or a need to optimize your existing ones, our strategies are customized for your goals and budget.',
+      'With our **Google Ads agency in Kerala**, we help you utilize your paid search advertising campaigns to grow your business.',
     ],
     cards: [
       { icon: 'search', title: 'Google Search Ads Campaigns' },
@@ -305,62 +289,54 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why Google Ads Matters',
-      intro:
-        'Reaching potential customers online requires more than simply having a website. Google Ads helps your business appear in relevant search results and across supported advertising placements, giving you opportunities to connect with people who are interested in your offerings.',
+      intro: 'Getting hold of potential clients on the internet is not only about having a website. An efficient **Google Ads service** can help you reach out to your audiences through proper advertising and manage your advertising budgets well.',
       lead: 'A well-managed Google Ads strategy can help your business:',
-      items: [
-        'Increase online visibility',
-        'Reach high-intent customers',
-        'Generate qualified leads',
-        'Drive relevant website traffic',
-        'Measure advertising performance',
-      ],
+      items: ['Increase online visibility', 'Reach high-intent customers', 'Generate qualified leads', 'Drive relevant website traffic', 'Measure advertising performance'],
     },
     who: {
-      heading: 'Who Needs Google Ads Services?',
-      intro:
-        'Our Google Ads services are designed for businesses that want to reach potential customers faster, promote their offerings, and achieve specific digital marketing objectives.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'Local service providers',
-        'E-commerce businesses',
-        'Established companies',
-        'Businesses seeking more leads and sales',
-      ],
+      heading: 'Who Can Benefit from Google Ads?',
+      intro: 'Our campaigns are designed for businesses that want to reach potential customers faster, promote their offerings, and achieve specific digital marketing objectives.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'Local service providers', 'E-commerce businesses', 'Established companies', 'Businesses seeking more leads and sales'],
     },
     why: {
+      eyebrow: 'Why Choose Brandotics?',
       heading: 'Smarter {o:Campaigns.}|Stronger {a:Results.}',
       paragraphs: [
-        'At Brandotics, we believe effective advertising begins with a clear understanding of your business objectives and target audience. We combine strategic keyword selection, persuasive ad messaging, audience insights, and ongoing performance analysis to help your advertising budget work more effectively.',
-        'Our approach focuses on reaching relevant audiences, identifying campaign opportunities, and making informed adjustments based on performance data. From campaign setup and conversion tracking to budget management and optimization, every step is designed to support your marketing goals and improve advertising effectiveness.',
+        '[Brandotics](/) believes that any successful advertisement starts with a proper understanding of your business goals and audience. As a **Google Ads agency in Kerala**, we make use of keyword selection, powerful ad messaging, targeting information, as well as performance analysis to increase the effectiveness of your advertising budget.',
+        'Our strategy is concentrated on targeting your potential audience, finding opportunities for the campaign, and adjusting it according to the performance data. Being **Google Ads services agency** with the philosophy of transparency, we ensure all our actions are aimed at meeting your marketing needs.',
       ],
       features: [
-        { icon: 'target', title: 'Targeted Advertising Strategy', text: 'We identify relevant keywords and audience opportunities to help connect your business with potential customers.' },
+        { icon: 'target', title: 'Targeted Advertising Strategy', text: 'We can determine important keywords and audience opportunities that can link your business with your prospective customers.' },
         { icon: 'wallet', title: 'Budget-Conscious Campaign Management', text: 'We monitor spending and campaign performance to help make informed decisions about advertising investment.' },
         { icon: 'gauge', title: 'Continuous Performance Optimization', text: 'We evaluate clicks, conversions, and other relevant metrics to identify opportunities to improve campaign performance.' },
       ],
     },
+    faq: [
+      { q: 'How can Google Ads services help my business to grow?', a: 'Being a **Google Ads agency in Kerala**, we take care of all things like keyword research, ad design, targeting, budget management, and so forth so that your campaign reaches the right people.' },
+      { q: 'How much money should I allocate to get started?', a: 'There is no set minimum. The campaign is crafted based on your goals, industry competition, and your budget per month; then spends are adjusted accordingly based on data analysis.' },
+      { q: 'How soon can I expect results?', a: 'Google Ads will be able to begin sending traffic right away when the campaigns launch. The quality of leads and the effectiveness of the campaign should improve within the first couple of weeks.' },
+      { q: 'How will I know if my campaigns are working?', a: 'Conversion tracking is set up, and we share reports that include clicks, inquiries, cost per lead, and others. In this way, you will know exactly how well your investment in advertising is doing.' },
+    ],
     cta: {
       heading: 'Ready to Turn Clicks {a:Into Customers?}',
-      text: "Reach your ideal audience with strategic Google Ads campaigns built around your business goals. Let's improve your online visibility, attract relevant visitors, and create more opportunities for leads and sales.",
+      text: "Get to your target audience through the best **Google Ads agency in Kerala,** which creates advertisements based on your objectives. Let's boost your online presence, generate traffic, and increase your potential for generating leads and sales.",
     },
   },
   {
-    slug: 'content-writing',
+    slug: 'content-writing-services-in-kerala',
     name: 'Content Writing',
     icon: 'text',
-    title: 'Content Writing Services',
-    titleMarkup: 'Content Writing {a:Services}',
-    // The PDF's home page has no card copy for Content Writing, so this is the
-    // opening sentence of the Content Writing page without "At Brandotics,".
-    summary:
-      'Our content writing services help businesses communicate their ideas, showcase their expertise, and connect with the right audience through meaningful, engaging content.',
+    seo: {
+      title: 'Content Writing Services in Kerala | Brandotics',
+      description: 'Create engaging, SEO-friendly content with Brandotics. Our content writing services in Kerala help businesses communicate clearly, reach audiences, and grow online.',
+    },
+    heading: 'Content Writing {a:Services in Kerala}',
+    summary: 'Professional writing to be published on your website, blog, and social media sites that clearly and succinctly communicates what you do and why someone should choose you.',
     tagline: 'Words That Connect. Content That Converts.',
     intro: [
-      'At Brandotics, our content writing services help businesses communicate their ideas, showcase their expertise, and connect with the right audience through meaningful, engaging content. We combine creative storytelling, audience research, and strategic messaging to create content that reflects your brand voice and supports your business goals.',
-      'Our approach goes beyond putting words on a page. We focus on delivering valuable information, communicating your brand message clearly, and creating content that encourages readers to take action. Whether you need fresh website copy or consistent content for your digital marketing campaigns, our writing solutions are tailored to your audience, industry, and objectives.',
-      'With thoughtful research and purposeful storytelling, Brandotics helps transform your ideas into compelling content that builds credibility, strengthens your online presence, and supports long-term business growth.',
+      'Our content writing services at Brandotics enable companies to express their thoughts, share their knowledge, and reach the right people through the right content. Combining creativity in writing, research into your audience, and effective messaging enables us to deliver content that will reflect your brand voice and meet your business needs.',
+      'While our content writing service may include the creation of words alone, what we do at Brandotics is focused on providing valuable information, conveying your brand message, and creating content that motivates your readers to act. Whether you need new copy for your site or regular content for your digital marketing campaign, our writing services are designed specifically for your audience and industry.',
+      'Through research and storytelling, Brandotics can turn your thoughts into valuable content.',
     ],
     cards: [
       { icon: 'devices', title: 'Website Content Writing' },
@@ -372,35 +348,21 @@ export const services: Service[] = [
     ],
     matters: {
       heading: 'Why Content Writing Matters',
-      intro:
-        'Quality content helps your business communicate its value, answer customer questions, and build meaningful connections with your audience. Well-crafted content also supports your digital marketing efforts by making your website more informative, your brand more recognizable, and your messaging more consistent.',
+      intro: 'Quality content enables your company to demonstrate its worth, solve customer queries, and connect with your audience in a relevant manner. Good content also helps your online marketing endeavors as well since it makes your website informative, increases brand recognition, and maintains consistency in communication.',
       lead: 'Effective content writing can help your business:',
-      items: [
-        'Communicate your brand message',
-        'Build trust and credibility',
-        'Improve search visibility',
-        'Engage your target audience',
-        'Encourage enquiries and conversions',
-      ],
+      items: ['Communicate your brand message', 'Build trust and credibility', 'Improve search visibility', 'Engage your target audience', 'Encourage enquiries and conversions'],
     },
     who: {
       heading: 'Who Needs Content Writing Services?',
-      intro:
-        'Our content writing services are designed for businesses that want to communicate more effectively, strengthen their digital presence, and share valuable information with their audience.',
-      items: [
-        'Startups and new businesses',
-        'Small and medium-sized businesses',
-        'E-commerce businesses',
-        'Digital marketing agencies',
-        'Established brands and companies',
-        'Businesses with outdated or ineffective website content',
-      ],
+      intro: 'The services we offer in content writing are for organizations that wish to become more effective communicators, enhance their online presence, and provide useful information to their audience.',
+      items: ['Startups and new businesses', 'Small and medium-sized businesses', 'E-commerce businesses', 'Digital marketing agencies', 'Established brands and companies', 'Businesses with outdated or ineffective website content'],
     },
     why: {
+      eyebrow: 'Why Choose Brandotics?',
       heading: 'Meaningful {o:Words.}|Measurable {a:Impact.}',
       paragraphs: [
-        'At Brandotics, we believe effective content starts with understanding your audience and communicating what makes your business valuable. We combine creative writing, relevant research, and strategic planning to develop content that reflects your brand identity and supports your marketing objectives.',
-        'Our approach focuses on creating clear, engaging, and purposeful content for different platforms and audiences. From website copy and informative blog articles to persuasive marketing messages, every piece is developed to communicate your value, maintain your brand voice, and create a consistent experience for your readers.',
+        'The belief at [Brandotics](/) is that great content begins with knowing your audience and telling your customers about your value as a company. This is done through a creative blend of writing, research, and planning to come up with content that speaks to your brand’s personality and marketing goals.',
+        'We create purposeful content through our unique process of coming up with engaging and effective content for various audiences and platforms, from website writing to blogs and marketing messages.',
       ],
       features: [
         { icon: 'users', title: 'Audience-Focused Writing', text: "We create relevant content that addresses your audience's interests, questions, and needs." },
@@ -408,11 +370,17 @@ export const services: Service[] = [
         { icon: 'chat', title: 'Consistent Brand Voice', text: 'We maintain a consistent tone and messaging style to help your business build recognition and communicate with confidence.' },
       ],
     },
+    faq: [
+      { q: 'What types of content do you write?', a: 'We develop website copy, SEO blog posts, social media copy, advertising copy, product descriptions, and branding content. If there’s anything else that you require, just let us know what your requirements are.' },
+      { q: 'Do you write SEO-friendly content?', a: 'Of course! We incorporate relevant keywords and ensure that your content is properly structured to help increase discoverability by search engines. But most importantly, we prioritize readability and value. Your content must be useful and readable for your users.' },
+      { q: 'Can you match my brand’s tone of voice?', a: 'Absolutely. It begins with knowing what your brand is about, the people you want to reach out to, and what you hope to achieve. Then, it entails creating content that will reflect you as an organization.' },
+      { q: 'How do you make sure the content is accurate and relevant to my industry?', a: 'Before we start working on the document, we analyze the industry you operate in, the target audience, and the competition in the market. We will also use the information you provide us about your products, services, and branding.' },
+    ],
     cta: {
       heading: 'Ready to Tell Your {a:Brand Story?}',
-      text: "Give your business a stronger voice with content that informs, engages, and inspires action. Let's create meaningful content that connects with your audience, communicates your value, and supports your business goals.",
+      text: 'Boost the power of your voice with content that will educate, engage, and drive action. We can collaborate to create valuable content that speaks to your audience and makes the most of your value proposition.',
     },
   },
 ];
 
-export const servicePath = (slug: string) => `/services/${slug}/`;
+export const servicePath = (slug: string) => `/${slug}`;

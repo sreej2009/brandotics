@@ -18,6 +18,12 @@ Pushing to `main` builds and publishes the site to GitHub Pages through
 `.github/workflows/deploy.yml`. The workflow passes the Pages URL and sub-folder to the
 build (`SITE_URL`, `BASE_PATH`); links and assets pick the sub-folder up via `src/utils/url.ts`.
 
+## URLs
+
+Page URLs follow the content document (`/about-us`, `/seo-company-in-kerala`, `/contact`, `/blog/` ...).
+`build.format: 'preserve'` in `astro.config.mjs` produces `about-us.html` etc., which GitHub Pages
+serves without the extension. Each page sets its own title, meta description and canonical URL.
+
 ## Structure
 
 - `src/data/site.ts`: site name, contact details, social links, form endpoint
@@ -37,7 +43,7 @@ Section photos are in `public/assets/images/`, assigned to pages in `src/data/im
 
 The three posts in `src/data/blog.ts` are sample articles for development, labelled
 "Sample article" on the site. Replace them with real articles and set `sample: false`
-(or remove the flag) before launch. Pages: `/blog/` and `/blog/<slug>/`.
+(or remove the flag) before launch. Pages: `/blog/` and `/blog/<slug>`.
 
 ## Client logos
 
@@ -48,8 +54,8 @@ confirmed clients; set `confirmed` to `false` there to hide the section.
 ## Placeholders to replace
 
 - **Favicon**: `public/favicon.svg`
-- **Team**: `src/components/TeamSection.astro` (names, roles; photos currently use the generic avatar)
-- **Contact details and social links**: `src/data/site.ts`
+- **Team photos**: names and roles are in `src/data/team.ts`; add a `photo` to replace the generic avatar
+- **Social links**: `src/data/site.ts`
 - **Contact form delivery**: set `formEndpoint` in `src/data/site.ts`. Until then the form
   validates but sends nothing, and tells the visitor so.
 - **Production URL**: `site` in `astro.config.mjs`

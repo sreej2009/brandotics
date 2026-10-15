@@ -9,10 +9,11 @@ import ProcessSection from '../../components/ProcessSection.astro';
 import ChannelsSection from '../../components/ChannelsSection.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import CtaBox from '../../components/CtaBox.astro';
+import Rich from '../../components/Rich.astro';
 import { whatWeDo, cta } from '../../data/home';
 import { services, servicePath } from '../../data/services';
 ---
-<Base title="Services" description={whatWeDo.text}>
+<Base title="Digital Marketing Services in Kerala | Brandotics" description="Explore Brandotics digital marketing services in Kerala: web development, SEO, social media marketing, graphic design, Google Ads and content writing.">
   <PageHero title="Our {a:Services}" crumb="Services" />
 
   <section class="section">
@@ -22,7 +23,7 @@ import { services, servicePath } from '../../data/services';
           <Eyebrow text={whatWeDo.eyebrow} />
           <Heading text={whatWeDo.heading} />
         </div>
-        <p class="lead">{whatWeDo.text}</p>
+        <Rich class="lead" text={whatWeDo.text} />
       </div>
       <div class="grid grid--3">
         {services.map((s) => <Card icon={s.icon} title={s.name} text={s.summary} href={servicePath(s.slug)} />)}

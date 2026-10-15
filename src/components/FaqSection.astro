@@ -1,16 +1,19 @@
 ---
 import Eyebrow from './Eyebrow.astro';
 import Heading from './Heading.astro';
+import Rich from './Rich.astro';
 import { faq } from '../data/home';
+interface Props { eyebrow?: string; heading?: string; items?: { q: string; a: string }[] }
+const { eyebrow = faq.eyebrow, heading = faq.heading, items = faq.items } = Astro.props;
 ---
 <section class="section faq">
   <div class="container">
     <div class="faq__head">
-      <Eyebrow text={faq.eyebrow} />
-      <Heading text={faq.heading} />
+      <Eyebrow text={eyebrow} />
+      <Heading text={heading} />
     </div>
     <div class="accordion" data-accordion>
-      {faq.items.map((item, i) => (
+      {items.map((item, i) => (
         <div class:list={['accordion__item', { 'is-open': i === 0 }]}>
           <h3 class="accordion__q">
             <button type="button" id={`faq-q-${i}`} aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`faq-a-${i}`}>
@@ -18,7 +21,7 @@ import { faq } from '../data/home';
             </button>
           </h3>
           <div class="accordion__a" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>
-            <div class="accordion__inner"><p>{item.a}</p></div>
+            <div class="accordion__inner"><Rich text={item.a} /></div>
           </div>
         </div>
       ))}

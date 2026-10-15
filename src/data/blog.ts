@@ -22,7 +22,11 @@ export interface Post {
 export const blog = {
   eyebrow: 'From the Blog',
   heading: '{o:Insights} & {a:Ideas}',
-  intro: 'Practical thoughts on search, social media, content and design from the Brandotics team.',
+  intro: 'Explore digital marketing tips, insights, and strategies to grow your brand online.',
+  seo: {
+    title: 'Digital Marketing Blog & Tips | Brandotics',
+    description: 'Explore the Brandotics blog for insights on SEO, digital marketing, web development, social media marketing, and strategies to grow your online presence.',
+  },
   button: 'View All Articles',
 };
 
@@ -118,4 +122,4 @@ export const posts: Post[] = [
   },
 ];
 
-export const postPath = (slug: string) => `/blog/${slug}/`;
+export const postPath = (slug: string) => `/blog/${slug}`;

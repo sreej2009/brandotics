@@ -1,54 +1,62 @@
-// Home page copy, taken from brandotics-content.pdf (pages 1–7).
+// Home page copy, taken from Final.pdf (pages 1–7).
 // Heading markup: {o:…} outline, {oa:…} accent outline, {a:…} accent, | line break.
+// Copy markup: **bold keyword**, [link text](/path) — see src/components/Rich.astro.
+
+export const homeSeo = {
+  title: 'Digital Marketing Agency in Kerala | Brandotics',
+  description:
+    'Brandotics is a digital marketing agency in Kerala offering SEO, web development, social media marketing, Google Ads, and creative solutions for growth.',
+};
 
 export const hero = {
-  eyebrow: 'We Are Digital Marketing Experts',
-  heading: '{o:Turning} {oa:Ideas}|Into Digital {a:Growth}',
-  text: 'We help businesses build a stronger digital presence through smart marketing strategies, engaging content, and performance-focused campaigns. From reaching the right audience to turning attention into action, we create digital experiences designed to move your business forward.',
+  eyebrow: 'Your Trusted Digital Marketing Agency in Kerala',
+  heading: '{o:Grow Your} {oa:Brand}|Online With {a:Confidence}',
+  text: 'Brandotics is a **digital marketing agency in Kerala** that assists companies and established brands in enhancing their presence online through customised marketing solutions. We develop unique campaigns that grab attention, generate interest, and motivate people to enquire.',
   button: 'Free Audit',
 };
 
 export const whatWeDo = {
   eyebrow: 'What We Do',
-  heading: 'Digital {o:Solutions}|Built for {a:Business}|{a:Growth.}',
-  text: 'We combine strategy, creativity, technology, and digital marketing to help businesses build a stronger online presence. From developing high-performing websites to improving search visibility and running targeted advertising campaigns, we create digital solutions designed to attract the right audience and turn attention into growth.',
+  heading: 'Complete {o:Marketing,}|Built Around {a:Your Business}',
+  text: 'At Brandotics, we leverage our experience in strategy, creativity, and technology to help businesses grow through the Internet. As a **digital marketing agency in Kerala**, our methodology involves website creation, search engine optimization, and advertising. Our **digital marketing services in Kerala** provide the synergy between these aspects to create a coherent digital presence.',
   button: 'Explore Our Services',
 };
 
 export const approach = {
   eyebrow: 'About Our Approach',
-  heading: 'We {oa:Understand}|Your Audience {a:First.}',
+  heading: 'We Start by {oa:Understanding}|Your {a:Customers}',
   paragraphs: [
-    'Great marketing starts with understanding people. Before creating a campaign, we look at your audience, industry, competitors, brand personality, and business objectives. This allows us to develop marketing ideas that are not only visually appealing but also meaningful to the people you want to reach.',
-    'Our goal is to connect your brand with the right audience at the right moment. From the first impression to the final conversion, we focus on creating a clear and consistent digital journey that encourages people to trust your brand and take action.',
+    'We start by learning about your customers',
+    'The starting point for marketing is always hearing out our clients. Right from the very beginning, prior to outlining a strategy for the first social media post or advertisement, we conduct an analysis of your market, industry, and competitors. Being a **digital marketing company in Kerala**, we are aware of how customers in our region search and shop.',
+    'Our objective is clear: To connect your brand with the customer in question, making every step in the process seamless and authentic.',
   ],
   features: [
-    { icon: 'users', title: 'Audience First', text: 'We study your target audience, their interests, behaviors, needs, and online habits to create marketing that feels relevant.' },
-    { icon: 'chart', title: 'Data Focused', text: 'We use performance insights to understand what works, identify opportunities, and continuously improve campaign effectiveness.' },
-    { icon: 'trend', title: 'Growth Mindset', text: "We don't simply aim for temporary attention. We build strategies designed to create sustainable visibility, engagement, leads, and long-term growth." },
+    { icon: 'users', title: 'Audience First', text: 'We analyse who your target audience is, their requirements, and their online activity to ensure that each communication is relevant to them.' },
+    { icon: 'chart', title: 'Data Focused', text: "Numbers influence our choices. We know what's working, we ditch what's not working, and we continually optimize your campaigns." },
+    { icon: 'trend', title: 'Growth Mindset', text: 'It’s not about flash-in-the-pan moments. It’s about creating enduring visibility, engagement, and leads to keep your business going forward.' },
   ],
 };
 
 export const stats = {
-  eyebrow: 'Digital Growth, Measured',
-  heading: 'Our {oa:Progress} Through {a:Numbers} & {a:Results.}',
+  eyebrow: 'Results You Can See',
+  heading: 'The {oa:Strength} Behind {a:Brandotics.}',
   items: [
-    { value: 250, suffix: '+', label: 'Campaigns Managed' },
-    { value: 1, suffix: 'M+', label: 'Audience Reached' },
-    { value: 15, suffix: 'K+', label: 'Leads Generated' },
-    { value: 75, suffix: '+', label: 'Brands Supported' },
+    { value: 30, suffix: '+', label: 'Team Members' },
+    { value: 3, suffix: '+', label: 'Years Experience' },
+    { value: 3, suffix: '+', label: 'Countries Served' },
+    { value: 24, suffix: '/7', label: 'Growth Mindset' },
   ],
-  note: 'Every number represents a campaign, a challenge, an opportunity, and a measurable step toward stronger digital growth.',
+  note: 'A passionate team combining experience, creativity, and strategic thinking to help businesses grow in the digital world.',
 };
 
 export const why = {
-  eyebrow: 'Why Work With Us?',
-  heading: 'Smart {o:Strategies,}|Stronger {a:Outcomes.}',
-  text: 'Digital marketing changes quickly, but successful marketing always starts with a clear understanding of the customer. We combine creative thinking with strategic planning and performance analysis to make every campaign more purposeful.',
+  eyebrow: 'Why Brandotics?',
+  heading: 'Clear {o:Thinking,} Creative Ideas,|Better {a:Outcomes}',
+  text: 'Trends in marketing come and go, but there is one constant: success is achieved through understanding your consumer. With the insights of a **digital marketing expert in Kerala** and the assistance of our whole team of professionals, we assure you that every marketing effort will be both strategic and measurable.',
   features: [
-    { icon: 'bulb', title: 'Creative Thinking', text: 'We develop fresh ideas that help your brand stand apart from competitors and capture attention in crowded digital spaces.' },
-    { icon: 'chat', title: 'Clear Communication', text: 'We keep your marketing process simple, transparent, and easy to understand, so you always know what we are doing and why.' },
-    { icon: 'gauge', title: 'Performance Focus', text: 'We measure campaign performance and use real insights to improve reach, engagement, traffic, leads, and conversions.' },
+    { icon: 'bulb', title: 'Creative Thinking', text: 'Creative solutions that will help your brand get noticed in a crowded stream or search page.' },
+    { icon: 'chat', title: 'Clear Communication', text: 'No technical terms and no uncertainties. You know exactly what we do, why we do it, and how well we do it.' },
+    { icon: 'gauge', title: 'Performance Focus', text: 'We will track reach, traffic, leads, and conversions. Then we will use that knowledge to optimize your next campaign.' },
   ],
   bars: [
     { label: 'Creative Strategy', value: 95 },
@@ -59,53 +67,53 @@ export const why = {
 
 export const process = {
   eyebrow: 'How We Work',
-  heading: 'From {o:Strategy} To|{a:Measurable Growth.}',
-  text: 'Effective digital marketing starts with a clear plan. We follow a structured process that connects research, creativity, execution, and optimization. Every stage is designed to understand your audience, communicate your value, and turn digital attention into meaningful business results.',
+  heading: 'From {o:First Idea} to|{a:Measurable Growth}',
+  text: 'Just like any experienced **digital marketing consultant in Kerala**, we start with a series of questions rather than any assumptions. The process involves five steps, where each step is dependent upon the previous one.',
   steps: [
-    { title: 'Discover', text: 'We learn about your business, audience, competitors, goals, and current digital presence to identify the strongest opportunities.' },
-    { title: 'Strategize', text: 'We create a focused marketing strategy based on the right platforms, content formats, advertising channels, and measurable objectives.' },
-    { title: 'Create', text: 'Our team develops engaging campaigns, content, advertisements, and digital assets that communicate your brand clearly and attract the right audience.' },
-    { title: 'Launch', text: 'We put the strategy into action across the selected digital channels, ensuring every campaign has a clear purpose and direction.' },
-    { title: 'Optimize', text: 'We continuously analyze campaign performance and make data-driven improvements to increase reach, engagement, leads, and conversions.' },
+    { title: 'Discover', text: 'We collect data about your company, your clients, your competitors, and your current internet presence to identify the best opportunities.' },
+    { title: 'Strategize', text: 'The choices are made using the appropriate media platforms, content, and media forms, and our objectives can be measured.' },
+    { title: 'Create', text: 'Our creative team creates and designs the campaign, ad, and content copy that will tell your story and reach the right people.' },
+    { title: 'Launch', text: 'Your plan is implemented via the chosen media, with every campaign having its own set objective.' },
+    { title: 'Optimize', text: 'We evaluate our results and make the required adjustments while continually increasing our coverage, involvement, and lead generation.' },
   ],
 };
 
 export const channels = {
   eyebrow: 'Where Your Brand Can Grow',
-  heading: '{o:One Strategy} Multiple {a:Digital Opportunities.}',
-  text: 'Your customers are spending time across multiple digital platforms, but not every channel is right for every business. We identify where your audience is most active and create a connected marketing strategy that puts your brand in front of the right people.',
+  heading: '{o:One Strategy,} Many {a:Digital Opportunities}',
+  text: 'Customers can be found on various platforms, but not all platforms may be suitable for your business. Each of the following platforms is designed by a **digital marketing specialist in Kerala** who knows the platform very well.',
   items: [
-    { icon: 'search', title: 'Search Marketing', text: 'Improve your visibility when potential customers are actively searching for products, services, or solutions related to your business.' },
-    { icon: 'share', title: 'Social Media', text: 'Create an active and recognizable social presence with content that builds awareness, encourages interaction, and keeps your brand relevant.' },
-    { icon: 'target', title: 'Paid Advertising', text: 'Reach highly targeted audiences through carefully planned advertising campaigns designed around traffic, leads, sales, or brand awareness.' },
-    { icon: 'text', title: 'Content Strategy', text: 'Turn your expertise into valuable content that educates your audience, builds trust, and gives people more reasons to choose your brand.' },
-    { icon: 'mail', title: 'Email Marketing', text: 'Stay connected with potential and existing customers through relevant messages, promotional campaigns, updates, and personalized communication.' },
-    { icon: 'chart', title: 'Analytics & Optimization', text: 'Use meaningful performance data to understand customer behavior, identify opportunities, and continuously improve your marketing efforts.' },
+    { icon: 'search', title: 'Search Marketing', text: 'Get found by those who are searching for similar products/services.' },
+    { icon: 'share', title: 'Social Media', text: 'Create awareness and stay relevant through content that people love to share.' },
+    { icon: 'target', title: 'Paid Advertising', text: 'Target specific audiences through ads designed for traffic, leads, or conversions.' },
+    { icon: 'text', title: 'Content Strategy', text: 'Pass your information to the readers through informative content that helps establish trust.' },
+    { icon: 'mail', title: 'Email Marketing', text: 'Maintain contact with your clients, both new and old, with appropriate promotions, news, and personal communications.' },
+    { icon: 'chart', title: 'Analytics & Optimization', text: 'Customer behaviour is understood using real-life information and applied in each marketing campaign.' },
   ],
 };
 
 export const team = {
   eyebrow: 'Our Marketing Team',
-  heading: '{o:The People} Behind {a:Your Growth.}',
-  text: 'Successful digital marketing requires more than one skill. Our team brings together strategy, content, design, advertising, analytics, and creative thinking to build campaigns that work together as one complete marketing system.',
+  heading: 'Meet the {o:People} Behind|Your {a:Growth}',
+  text: 'Effective marketing requires a blend of many skills. In our team of **digital marketers in Kerala**, we have integrated strategy, content creation, design, advertising, and analysis to create an interconnected process for you.',
 };
 
 export const talk = {
   eyebrow: "Let’s Talk Marketing",
-  heading: '{o:Your Next}|Growth {a:Starts Here.}',
-  text: "Have a business goal you want to achieve online? Let's discuss your audience, challenges, and opportunities. Whether you are launching a new brand, looking for more leads, improving your online visibility, or scaling an existing campaign, we can help you create a digital marketing strategy built around your goals.",
+  heading: 'Your {o:Next Stage}|of Growth {a:Starts Here}',
+  text: 'Considering a new launch, looking for more leads, or trying to get the most out of your current marketing strategies? As a **digital marketing agency in Kerala** that follows ethics, we would love to hear from you and share our suggestions for your business.',
 };
 
 export const faq = {
   eyebrow: 'Frequently Asked Questions',
-  heading: '{oa:Everything} You Should|Know {a:Before We Begin.}',
+  heading: 'What You May {oa:Want to Know}|Before {a:We Begin}',
   items: [
-    { q: 'What digital marketing services do you provide?', a: 'We provide a complete range of digital marketing services including social media marketing, SEO, Google Ads, Meta advertising, content marketing, lead generation, campaign strategy, analytics, and digital brand promotion. Our services can be combined into a complete marketing plan or selected individually depending on your business requirements.' },
-    { q: 'How do you create a digital marketing strategy?', a: 'We begin by understanding your business, target audience, competitors, existing digital presence, and objectives. We then identify the most suitable channels and develop a strategy covering content, advertising, search visibility, audience engagement, and conversion opportunities.' },
-    { q: 'Can you manage our social media accounts?', a: 'Yes. We can manage your social media strategy from planning and content creation to publishing, audience engagement, performance tracking, and campaign optimization.' },
-    { q: 'Do you provide Google and social media advertising?', a: 'Yes. We can plan, launch, monitor, and optimize paid campaigns across platforms such as Google, Instagram, and Facebook, depending on your audience and marketing goals.' },
-    { q: 'How do you measure campaign success?', a: 'We measure performance using relevant metrics such as reach, impressions, engagement, website traffic, leads, conversions, cost per lead, click-through rate, and return on advertising spend.' },
-    { q: 'Can you work with small businesses?', a: 'Absolutely. Marketing strategies can be developed according to your business size, audience, goals, and available budget. The focus is on using the right channels rather than simply spending more.' },
+    { q: 'What services do you provide?', a: 'The services that we offer include social media marketing, SEO, Google Ads, Meta Ads, content marketing, lead generation, web development, graphic design, and performance reporting. You may choose our entire marketing bundle or simply choose the service that you need.' },
+    { q: 'How is a marketing strategy developed?', a: 'This starts with our understanding of your firm, your target audience, your competition, and your requirements. From here, we pick the right mediums and design your content, marketing, SEO, and conversion strategy.' },
+    { q: 'Can you manage our social media accounts?', a: 'Absolutely. We cover everything from content management to posting and responding to fans each month.' },
+    { q: 'Do you run Google and social media ads?', a: 'Yes. We plan, implement, and manage paid campaigns on Google, Instagram, and Facebook based on your audience and objectives.' },
+    { q: 'How do you measure success?', a: 'This would include reach, impressions, engagement, web traffic, leads, conversions, cost per lead, click-through rates, and ROI on advertising spend.' },
+    { q: 'Why choose a local agency?', a: 'The local team knows about customer behaviour, language, cultural events, and other things happening locally. Since we are a **digital marketing agency in Kerala**, we use all this information to make your marketing campaigns more relevant to the target audience. We cater even to the requirements of small business firms.' },
   ],
 };
 

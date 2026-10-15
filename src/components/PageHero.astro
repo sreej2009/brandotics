@@ -1,12 +1,14 @@
 ---
 import { url } from '../utils/url';
 import Heading from './Heading.astro';
-interface Props { title: string; crumb: string; parent?: { label: string; href: string }; size?: 'lg' | 'md' }
-const { title, crumb, parent, size = 'lg' } = Astro.props;
+import Rich from './Rich.astro';
+interface Props { title: string; crumb: string; parent?: { label: string; href: string }; size?: 'lg' | 'md'; text?: string }
+const { title, crumb, parent, size = 'lg', text } = Astro.props;
 ---
 <section class="page-hero">
   <div class="container">
     <Heading tag="h1" text={title} size={size} />
+    {text && <Rich class="page-hero__text" text={text} />}
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
         <li><a href={url('/')}>Home</a></li>

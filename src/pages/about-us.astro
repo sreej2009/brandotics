@@ -1,0 +1,92 @@
+---
+// About page copy is taken from Final.pdf (pages 8–9). URL: /about-us
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Heading from '../components/Heading.astro';
+import Rich from '../components/Rich.astro';
+import BrandMark from '../components/BrandMark.astro';
+import Photo from '../components/Photo.astro';
+import { aboutImages } from '../data/images';
+import Card from '../components/Card.astro';
+import Feature from '../components/Feature.astro';
+import Collage from '../components/Collage.astro';
+import StatsBand from '../components/StatsBand.astro';
+import TeamSection from '../components/TeamSection.astro';
+import CtaBox from '../components/CtaBox.astro';
+
+const seo = {
+  title: 'About Brandotics | Experienced Digital Marketing Team',
+  description: 'Discover Brandotics, where industry experience, creative thinking, and smart digital marketing strategies come together to build brands and drive growth.',
+};
+const intro = [
+  "[Brandotics](/) is a combination of experience of the industry, creative minds, and intelligent digital marketing strategies that will enable businesses to enhance their presence on the Internet. We have experience gained through collaboration with reputed firms, generating tangible outcomes and understanding how a brand can grow in today's digital environment.",
+  'We apply our experience to generate strategies that will enable your business to connect with your target audience and grow sustainably.',
+];
+const values = [
+  { icon: 'briefcase', title: 'Experience That Matters', text: 'We have practical experience from dealing with well-known companies and facing real-world business problems.' },
+  { icon: 'users', title: 'Client-Focused Approach', text: 'We know what you need and who you are before coming up with our strategies for your business.' },
+  { icon: 'trend', title: 'Results-Driven Thinking', text: 'We focus on purposeful marketing, performance, and continuous improvement to turn digital efforts into measurable progress.' },
+];
+const experience = [
+  'The key to our success is the accumulated experience that we share as a team. Being in renowned companies made us realise the standards of professionalism, the workflow process, the expectations of the clients, and the significance of quality.',
+  'We use this knowledge in all the projects of Brandotics, integrating strategic thinking, creativity, and performance in order to help organisations differentiate themselves in the competitive digital environment.',
+];
+const cards = [
+  { icon: 'compass', title: 'Industry Expertise', text: 'Experience gained through practical business settings.' },
+  { icon: 'target', title: 'Strategic Planning', text: 'A vision that is in line with your business needs.' },
+  { icon: 'bulb', title: 'Creative Execution', text: 'Digital experiences that convey your brand.' },
+  { icon: 'gauge', title: 'Performance Focus', text: 'Decisions made in accordance with objectives and improvements.' },
+];
+---
+<Base title={seo.title} description={seo.description}>
+  <PageHero title="About {a:Brandotics}" crumb="About Us" />
+
+  <section class="section">
+    <div class="container about-split">
+      <div>
+        <Eyebrow text="About Brandotics" />
+        <Heading text="We {oa:Build} Brands|That {a:Move Forward.}" />
+        {intro.map((p) => <Rich class="lead" text={p} />)}
+        <div class="features features--stack">
+          {values.map((f) => <Feature {...f} />)}
+        </div>
+      </div>
+      <div class="about-split__media" data-reveal>
+        <BrandMark class="about-split__mark" />
+        <Photo photo={aboutImages.main} ratio="1 / 1" eager />
+        <div class="about-split__tile" aria-hidden="true"><BrandMark variant="outline" stroke={2} /></div>
+      </div>
+    </div>
+  </section>
+
+  <StatsBand />
+
+  <section class="section">
+    <div class="container why-split">
+      <Collage a={aboutImages.experienceA} b={aboutImages.experienceB} />
+      <div>
+        <Eyebrow text="Our Experience. Your Advantage." />
+        <Heading text="Knowledge {o:Built}|Through {a:Experience.}" />
+        {experience.map((p) => <Rich class="lead" text={p} />)}
+      </div>
+    </div>
+    <div class="container">
+      <div class="grid grid--4 grid--spaced">
+        {cards.map((c) => <Card {...c} />)}
+      </div>
+    </div>
+  </section>
+
+  <TeamSection
+    eyebrow="The People Behind Brandotics"
+    heading="{o:Experienced Minds.}|One {a:Shared Vision.}"
+    text="We are a skilled team with experience in well-known firms, bringing our skills in digital marketing, design, and development together to help businesses prosper. Our professional backgrounds at companies like **Zoho**, **Yamaha**, **Infosys**, and others have helped us develop a practical understanding of industry standards, teamwork, and delivering quality work."
+  />
+
+  <CtaBox
+    heading="{o:Let's} Work {a:Together!}"
+    text="Ready to give your brand an added boost? It’s time to work together and make something really happen with our experience and your ideas."
+    button="Get in Touch"
+  />
+</Base>

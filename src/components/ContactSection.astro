@@ -1,4 +1,5 @@
 ---
+import Rich from './Rich.astro';
 import Eyebrow from './Eyebrow.astro';
 import Heading from './Heading.astro';
 import ContactForm from './ContactForm.astro';
@@ -12,8 +13,8 @@ const { eyebrow, heading, text } = Astro.props;
     <div class="contact__info">
       <Eyebrow text={eyebrow} />
       <Heading text={heading} />
-      <p class="lead">{text}</p>
-      <div class="contact__cols" data-placeholder="contact-details">
+      <Rich class="lead" text={text} />
+      <div class="contact__cols">
         <div><h3>Location</h3><ContactDetails part="address" /></div>
         <div><h3>Contact</h3><ContactDetails part="contact" /></div>
         <div><h3>Follow Us</h3><ContactDetails part="social" /></div>
