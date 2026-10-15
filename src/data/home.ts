@@ -22,6 +22,16 @@ export const whatWeDo = {
   button: 'Explore Our Services',
 };
 
+export const globalClients = {
+  eyebrow: 'Our Global Clients',
+  heading: 'Where Our {a:Clients Are}',
+  text: 'We are a **digital marketing agency in Kerala** working with clients across India, Japan, the UAE, Qatar, and Canada to strengthen their digital presence and support business growth.',
+  image: {
+    src: '/assets/images/home/global-clients-map.png',
+    alt: 'World map marking Brandotics client locations in Canada, Qatar, the UAE, India and Japan',
+  },
+};
+
 export const approach = {
   eyebrow: 'About Our Approach',
   heading: 'We Start by {oa:Understanding}|Your {a:Customers}',

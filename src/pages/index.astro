@@ -20,7 +20,7 @@ import FaqSection from '../components/FaqSection.astro';
 import CtaBox from '../components/CtaBox.astro';
 import BlogSection from '../components/BlogSection.astro';
 import Rich from '../components/Rich.astro';
-import { homeSeo, hero, whatWeDo, approach, why, team, talk, cta } from '../data/home';
+import { homeSeo, hero, whatWeDo, globalClients, approach, why, team, talk, cta } from '../data/home';
 import { services, servicePath } from '../data/services';
 import { homeImages, heroAlt } from '../data/images';
 import { clients } from '../data/clients';
@@ -51,6 +51,12 @@ import { clients } from '../data/clients';
         <Heading text={whatWeDo.heading} />
         <Rich class="lead lead--cols" text={whatWeDo.text} />
         <Button href="/services/">{whatWeDo.button}</Button>
+        <div class="global-clients">
+          <Eyebrow text={globalClients.eyebrow} />
+          <Heading text={globalClients.heading} size="md" />
+          <Rich class="lead" text={globalClients.text} />
+          <img class="global-clients__map" src={url(globalClients.image.src)} alt={globalClients.image.alt} width="1200" height="766" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
   </section>

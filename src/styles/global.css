@@ -209,7 +209,10 @@ strong { font-weight: 700; color: var(--ink); }
 .grid--tight .card { padding: 30px; gap: 22px; }
 .grid--tight .card__title { font-size: 28px; }
 
-.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.global-clients { margin-top: 64px; padding-top: 56px; border-top: 1px solid var(--border); }
+.global-clients .lead { margin-top: 20px; }
+.global-clients__map { display: block; width: 100%; height: auto; margin-top: 28px; }
 .services-intro .btn, .features__action { margin-top: 40px; }
 
 .split-head { display: grid; grid-template-columns: 1.6fr 1fr; gap: 50px; align-items: end; margin-bottom: 60px; }
