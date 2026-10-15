@@ -16,13 +16,14 @@ function setNav(open) {
 if (navToggle && nav) {
   navToggle.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
 
-  document.querySelectorAll('.nav__subtoggle').forEach((btn) => {
-    const item = btn.closest('.nav__item');
+  // "Services" (label button) and its + icon both toggle the submenu.
+  document.querySelectorAll('.nav__item.has-sub').forEach((item) => {
+    const controls = item.querySelectorAll('.nav__label, .nav__subtoggle');
     const setSub = (open) => {
       item.classList.toggle('is-open', open);
-      btn.setAttribute('aria-expanded', String(open));
+      controls.forEach((c) => c.setAttribute('aria-expanded', String(open)));
     };
-    btn.addEventListener('click', () => setSub(!item.classList.contains('is-open')));
+    controls.forEach((c) => c.addEventListener('click', () => setSub(!item.classList.contains('is-open'))));
     item.addEventListener('focusout', (e) => {
       if (!item.contains(e.relatedTarget) && window.innerWidth > 1024) setSub(false);
     });
@@ -35,7 +36,7 @@ if (navToggle && nav) {
     if (e.key !== 'Escape') return;
     document.querySelectorAll('.nav__item.is-open').forEach((item) => {
       item.classList.remove('is-open');
-      item.querySelector('.nav__subtoggle')?.setAttribute('aria-expanded', 'false');
+      item.querySelectorAll('.nav__label, .nav__subtoggle').forEach((c) => c.setAttribute('aria-expanded', 'false'));
     });
     if (nav.classList.contains('is-open')) {
       setNav(false);

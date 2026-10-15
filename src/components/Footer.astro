@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
       <nav aria-label="Company">
         <h2 class="footer__title">Company</h2>
         <ul class="footer__list">
-          {nav.map((n) => <li><BrandMark class="footer__bullet" /><a href={url(n.href)}>{n.label}</a></li>)}
+          {nav.filter((n) => n.href).map((n) => <li><BrandMark class="footer__bullet" /><a href={url(n.href)}>{n.label}</a></li>)}
         </ul>
       </nav>
       <nav aria-label="Services">

@@ -12,7 +12,7 @@ const path = norm(Astro.url.pathname);
 const servicePaths = services.map((s) => norm(url(servicePath(s.slug))));
 const isSame = (href: string) => path === norm(url(href));
 const isCurrent = (href: string) =>
-  href === '/' ? isSame('/') : path.startsWith(norm(url(href))) || (href === '/services/' && servicePaths.includes(path));
+  href === '/' ? isSame('/') : path.startsWith(norm(url(href)));
 ---
 <header class="header">
   <div class="container header__inner">
@@ -24,10 +24,14 @@ const isCurrent = (href: string) =>
       <ul class="nav__list">
         {nav.map((item) => (
           <li class:list={['nav__item', { 'has-sub': item.children }]}>
-            <a href={url(item.href)} aria-current={isSame(item.href) ? 'page' : undefined} class:list={{ 'is-active': isCurrent(item.href) }}>{item.label}</a>
+            {item.children ? (
+              <button class:list={['nav__label', { 'is-active': servicePaths.includes(path) }]} type="button" aria-expanded="false" aria-controls="nav-services">{item.label}</button>
+            ) : (
+              <a href={url(item.href)} aria-current={isSame(item.href) ? 'page' : undefined} class:list={{ 'is-active': isCurrent(item.href) }}>{item.label}</a>
+            )}
             {item.children && (
               <>
-                <button class="nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-services" aria-label="Toggle services submenu"><span aria-hidden="true"></span></button>
+                <button class="nav__subtoggle" type="button" tabindex="-1" aria-hidden="true" aria-controls="nav-services"><span></span></button>
                 <ul id="nav-services" class="nav__sub">
                   {services.map((s) => (
                     <li><a href={url(servicePath(s.slug))} aria-current={isSame(servicePath(s.slug)) ? 'page' : undefined}>{s.name}</a></li>

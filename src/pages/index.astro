@@ -42,7 +42,7 @@ import { clients } from '../data/clients';
   </section>
 
   <section class="section">
-    <div class="container services-intro">
+    <div class="container services-intro" id="services">
       <div class="grid grid--2">
         {services.map((s) => <Card icon={s.icon} title={s.name} text={s.summary} href={servicePath(s.slug)} />)}
       </div>
@@ -50,7 +50,7 @@ import { clients } from '../data/clients';
         <Eyebrow text={whatWeDo.eyebrow} />
         <Heading text={whatWeDo.heading} size="md" />
         <Rich class="lead" text={whatWeDo.text} />
-        <Button href="/services/">{whatWeDo.button}</Button>
+        <Button href="#services">{whatWeDo.button}</Button>
         <div class="global-clients">
           <Eyebrow text={globalClients.eyebrow} />
           <Heading text={globalClients.heading} size="md" />

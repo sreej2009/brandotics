@@ -1,0 +1,9 @@
+---
+// Floating WhatsApp chat button, shown on every page (see src/layouts/Base.astro).
+import SocialIcon from './SocialIcon.astro';
+import { site } from '../data/site';
+const href = `https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent(site.whatsapp.message)}`;
+---
+<a class="wa-float" href={href} target="_blank" rel="noopener" aria-label="Chat with Brandotics on WhatsApp">
+  <SocialIcon name="whatsapp" size={30} />
+</a>

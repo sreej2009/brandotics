@@ -129,8 +129,9 @@ main { overflow-x: clip; }
 .nav { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 30px; }
 .nav__list { display: flex; align-items: center; gap: 30px; margin-inline: auto; }
 .nav__item { position: relative; display: flex; align-items: center; gap: 8px; }
-.nav__item > a, .nav__sub a { font-family: var(--font-head); font-weight: 600; font-size: 20px; line-height: 1; color: var(--ink); padding: 30px 0 26px; transition: color 0.2s; }
-.nav__item > a:hover, .nav__item > a.is-active, .nav__sub a:hover, .nav__sub a[aria-current] { color: var(--accent-text); }
+.nav__label { background: none; border: 0; cursor: pointer; }
+.nav__item > a, .nav__item > .nav__label, .nav__sub a { font-family: var(--font-head); font-weight: 600; font-size: 20px; line-height: 1; color: var(--ink); padding: 30px 0 26px; transition: color 0.2s; }
+.nav__item > a:hover, .nav__item > a.is-active, .nav__item > .nav__label:hover, .nav__item > .nav__label.is-active, .nav__item.is-open > .nav__label, .nav__sub a:hover, .nav__sub a[aria-current] { color: var(--accent-text); }
 .nav__subtoggle { width: 24px; height: 24px; padding: 0; border: 0; background: none; position: relative; }
 .nav__subtoggle span::before, .nav__subtoggle span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 12px; height: 1px; background: currentColor; transform: translate(-50%, -50%); transition: transform 0.3s var(--ease); }
 .nav__subtoggle span::after { transform: translate(-50%, -50%) rotate(90deg); }
@@ -314,7 +315,14 @@ strong { font-weight: 700; color: var(--ink); }
 .socials { display: flex; gap: 7px; margin-top: 6px; }
 .socials a, .socials span { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--accent); color: var(--accent-text); transition: background-color 0.2s, color 0.2s; }
 .socials a:hover { background: var(--accent); color: var(--on-accent); }
-.socials--tbd span { border-style: dashed; opacity: 0.55; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Floating WhatsApp button (WhatsApp brand green so it is instantly recognisable). */
+.wa-float { position: fixed; right: 24px; bottom: 24px; z-index: 40; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 8px 22px color-mix(in srgb, var(--ink) 25%, transparent); transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+.wa-float:hover, .wa-float:focus-visible { transform: translateY(-3px) scale(1.04); box-shadow: 0 12px 28px color-mix(in srgb, var(--ink) 32%, transparent); }
+/* keep the last footer line clear of the floating button */
+.footer .footer__bottom { padding-right: 88px; }
+@media (max-width: 767px) { .wa-float { right: 16px; bottom: 16px; width: 52px; height: 52px; } .wa-float svg { width: 26px; height: 26px; } .footer .footer__bottom { padding-right: 0; padding-bottom: 80px; } }
 
 .form { display: grid; gap: 22px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -454,7 +462,7 @@ strong { font-weight: 700; color: var(--ink); }
   .nav.is-open { display: flex; }
   .nav__list { flex-direction: column; align-items: stretch; gap: 0; margin: 0; }
   .nav__item { flex-wrap: wrap; justify-content: space-between; border-bottom: 1px solid var(--border); }
-  .nav__item > a { padding: 20px 0 16px; font-size: 24px; flex: 1; }
+  .nav__item > a, .nav__item > .nav__label { padding: 20px 0 16px; font-size: 24px; flex: 1; text-align: left; }
   .nav__subtoggle { width: 44px; height: 44px; }
   .nav__sub { position: static; width: 100%; min-width: 0; border: 0; padding: 0 0 10px 16px; opacity: 1; visibility: visible; transform: none; display: none; transition: none; }
   .nav__item.is-open > .nav__sub { display: block; }

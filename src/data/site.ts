@@ -13,8 +13,20 @@ export const site = {
     phone: '+91 94881 19362' as string | null,
   },
 
-  // PLACEHOLDER: add entries like { label: 'Instagram', href: 'https://…' }.
-  socials: [] as { label: string; href: string }[],
+  // Social profiles (platforms from the content document). Add each profile
+  // URL to `href`; until then the icon is shown without a link.
+  socials: [
+    { label: 'Instagram', icon: 'instagram', href: '' },
+    { label: 'Facebook', icon: 'facebook', href: '' },
+    { label: 'LinkedIn', icon: 'linkedin', href: '' },
+    { label: 'YouTube', icon: 'youtube', href: '' },
+  ] as { label: string; icon: 'instagram' | 'facebook' | 'linkedin' | 'youtube'; href: string }[],
+
+  // Floating WhatsApp button (number in international format, digits only).
+  whatsapp: {
+    number: '919488119362',
+    message: 'Hi Brandotics! \u{1F44B} I visited your website and would like to know more about your digital marketing services. Could you please share more details?',
+  },
 
   // PLACEHOLDER: URL of a form backend that accepts a JSON POST.
   // While empty, the contact form validates but does not send anything.
@@ -24,7 +36,8 @@ export const site = {
 export const nav = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about-us' },
-  { label: 'Services', href: '/services/', children: 'services' as const },
+  // No overview page: "Services" only opens the dropdown of service pages.
+  { label: 'Services', href: '', children: 'services' as const },
   { label: 'Blog', href: '/blog/' },
   { label: 'Contact', href: '/contact' },
 ];
