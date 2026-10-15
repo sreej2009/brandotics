@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// SITE_URL and BASE_PATH are set by the GitHub Pages workflow
-// (.github/workflows/deploy.yml). Locally the site builds for the root path.
-// For a custom domain, set SITE_URL to that domain and leave BASE_PATH unset.
+// SITE_URL (https://brandotics.com) is set by the GitHub Pages workflow
+// (.github/workflows/deploy.yml) so canonical URLs use the live domain.
+// BASE_PATH is only needed if the site is ever served from a sub-folder.
 //
 // build.format 'preserve' keeps the URLs from the content document:
 // src/pages/about-us.astro -> /about-us, src/pages/blog/index.astro -> /blog/.

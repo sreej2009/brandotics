@@ -14,9 +14,10 @@ Copy comes from `brandotics-content.pdf`; the visual design follows the agreed r
 
 ## Deployment
 
-Pushing to `main` builds and publishes the site to GitHub Pages through
-`.github/workflows/deploy.yml`. The workflow passes the Pages URL and sub-folder to the
-build (`SITE_URL`, `BASE_PATH`); links and assets pick the sub-folder up via `src/utils/url.ts`.
+Pushing to `main` builds and publishes the site to GitHub Pages (custom domain
+**brandotics.com**, DNS at GoDaddy) through `.github/workflows/deploy.yml`, which sets
+`SITE_URL=https://brandotics.com` for canonical URLs. `src/utils/url.ts` supports an optional
+sub-folder base path (`BASE_PATH`) if the site is ever moved.
 
 ## URLs
 

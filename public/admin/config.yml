@@ -5,8 +5,8 @@ backend:
   repo: sreej2009/brandotics
   branch: main
 
-site_url: https://sreej2009.github.io/brandotics/
-display_url: https://sreej2009.github.io/brandotics/
+site_url: https://brandotics.com/
+display_url: https://brandotics.com/
 
 media_folder: public/assets/images/blog
 public_folder: /assets/images/blog
