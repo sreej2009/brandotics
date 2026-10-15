@@ -39,11 +39,20 @@ In `public/assets/`: `brandotics-wordmark.png` (header and footer logo),
 `hero-man-pointing.png` (home hero) and `brandotics-banner.png` (CTA box background).
 Section photos are in `public/assets/images/`, assigned to pages in `src/data/images.ts`.
 
-## Blog (sample content)
+## Blog and admin
 
-The three posts in `src/data/blog.ts` are sample articles for development, labelled
-"Sample article" on the site. Replace them with real articles and set `sample: false`
-(or remove the flag) before launch. Pages: `/blog/` and `/blog/<slug>`.
+Blog posts are Markdown files in `src/content/blog/`. Manage them at `/admin/`
+(Sveltia CMS, configured in `public/admin/config.yml`):
+
+1. Create a GitHub fine-grained personal access token for the `brandotics` repository
+   with **Contents: Read and write** permission.
+2. Open `/admin/`, choose **Sign In Using Access Token** and paste the token.
+3. Add or edit a post and publish. The change is committed to `main` and the site
+   rebuilds automatically (about a minute).
+
+Images uploaded in the admin go to `public/assets/images/blog/`. Posts marked
+"Draft" are not shown on the site. The home page blog section appears once there is
+at least one published post.
 
 ## Client logos
 

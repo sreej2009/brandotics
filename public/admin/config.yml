@@ -1,0 +1,41 @@
+# Admin (Sveltia CMS) settings. Saving a post commits a Markdown file to the
+# repository; the GitHub Pages workflow then rebuilds the site (about 1 minute).
+backend:
+  name: github
+  repo: sreej2009/brandotics
+  branch: main
+
+site_url: https://sreej2009.github.io/brandotics/
+display_url: https://sreej2009.github.io/brandotics/
+
+media_folder: public/assets/images/blog
+public_folder: /assets/images/blog
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    summary: '{{title}} ({{date}})'
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - Digital Marketing
+          - SEO
+          - Web Development
+          - Social Media Marketing
+          - Graphic Design
+          - Google Ads
+          - Content Writing
+      - { label: Short description (shown on cards and in Google), name: excerpt, widget: text }
+      - { label: Featured image, name: image, widget: image }
+      - { label: Image description (alt text), name: imageAlt, widget: string, required: false }
+      - { label: Publish date, name: date, widget: datetime }
+      - { label: Draft (hide from the website), name: draft, widget: boolean, default: false, required: false }
+      - { label: Article, name: body, widget: markdown }

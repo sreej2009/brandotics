@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import PostCard from '../../components/PostCard.astro';
 import CtaBox from '../../components/CtaBox.astro';
-import { blog, posts } from '../../data/blog';
+import { blog, getPosts } from '../../data/blog';
 import { cta } from '../../data/home';
+const posts = await getPosts();
 ---
 <Base title={blog.seo.title} description={blog.seo.description}>
   <PageHero title={blog.heading} crumb="Blog" />
@@ -12,9 +13,13 @@ import { cta } from '../../data/home';
   <section class="section">
     <div class="container">
       <p class="lead blog-intro">{blog.intro}</p>
-      <div class="grid grid--3">
-        {posts.map((post) => <PostCard post={post} tag="h2" />)}
-      </div>
+      {posts.length > 0 ? (
+        <div class="grid grid--3">
+          {posts.map((post) => <PostCard post={post} tag="h2" />)}
+        </div>
+      ) : (
+        <p class="blog-empty">New articles are on the way. Please check back soon.</p>
+      )}
     </div>
   </section>
 
